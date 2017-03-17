@@ -1,0 +1,10 @@
+﻿<AML>
+ <Item type="Sequence" id="E7874F30F5354B4BBFCE58C7B432BA44" action="add">
+  <initial_value>0</initial_value>
+  <pad_to>4</pad_to>
+  <pad_with>0</pad_with>
+  <prefix>TD-</prefix>
+  <step>1</step>
+  <name>Tech Doc Number</name>
+ </Item>
+</AML>

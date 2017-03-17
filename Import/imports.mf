@@ -1,0 +1,11 @@
+<imports>
+  <package name="aras.labs.CustomTechDocs" path="CustomTechDocs\Import" />
+  <package name="com.aras.innovator.solution.TechDoc" path="TechDoc\Import">
+    <dependson name="com.aras.innovator.solution.PLM" />
+    <dependson name="com.aras.innovator.tdf" />
+  </package>
+  <package name="com.aras.innovator.tdf" path=".\">
+    <dependson name="com.aras.innovator.cui" />
+  </package>
+  <package name="com.aras.innovator.solution.PLM" path="PLM\Import" />
+</imports>

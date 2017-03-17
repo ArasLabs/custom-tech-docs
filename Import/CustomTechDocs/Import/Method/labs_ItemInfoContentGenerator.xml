@@ -1,0 +1,73 @@
+﻿<AML>
+ <Item type="Method" id="E64142C526954AE6A3E268043D8A5C3F" action="add">
+  <comments>Replaces the OOTB ItemInfoContentGenerator</comments>
+  <execution_allowed_to keyed_name="World" type="Identity">A73B655731924CD0B027E4F4D5FCC0A9</execution_allowed_to>
+  <method_code><![CDATA[//MethodTemplateName=CSharp:Aras.TDF.ContentGenerator(Strict);
+ItemDocumentElement targetItem = targetElement as ItemDocumentElement;
+
+if (targetItem != null) {
+	targetItem.ClearChilds();
+	
+	targetItem.AddChild(this.Factory.NewText("Title", targetItem.GetItemProperty("name", " ")));
+	targetItem.AddChild(this.Factory.NewText("Text", targetItem.GetItemProperty("description", " ")));
+	
+	string cost = targetItem.GetItemProperty("cost", " ");
+	if (cost != " ")
+	{
+	    targetItem.AddChild(this.Factory.NewText("Text", cost));
+    }
+    
+    string version = targetItem.GetItemProperty("major_rev", " ") + "." + targetItem.GetItemProperty("generation", " ");
+    string state = targetItem.GetItemProperty("state", " ");
+	string createdDt = targetItem.GetItemProperty("created_on", " ");
+	
+	if (createdDt != " ") 
+	{
+	    DateTime dt = DateTime.ParseExact(createdDt, "yyyy-MM-ddTHH:mm:ss", null); 
+	    createdDt = dt.ToString("MMM dd yyyy");
+	}
+	
+	targetItem.AddChild(this.Factory.NewText("Text", version + "  |  " + state + "  |  " + createdDt));
+
+    
+    Item components = this.Factory.InnovatorInstance.newItem("Part BOM","get");
+    components.setAction("get");
+    components.setAttribute("where","Part_BOM.source_id='" + targetItem.ItemId + "'");
+    components = components.apply();
+
+	// if referenced item was set, then
+	if (!components.isError())
+	{
+		TableDocumentElement tableElement = (TableDocumentElement) this.Factory.NewTable("Table", (components.getItemCount() + 2), 5);
+		tableElement.GetCell(0, 0).AddChild(this.Factory.NewText("Title", "Parts List"));
+
+		for (int i = 0; i < tableElement.CellCount; i++)
+		{
+			tableElement.MergeCells(0, i, MergeDirection.Right);
+		}
+
+		tableElement.GetCell(1, 0).AddChild(this.Factory.NewText("Title", "Sort"));
+		tableElement.GetCell(1, 1).AddChild(this.Factory.NewText("Title", "Number"));
+		tableElement.GetCell(1, 2).AddChild(this.Factory.NewText("Title", "Name"));
+		tableElement.GetCell(1, 3).AddChild(this.Factory.NewText("Title", "Qty"));
+		tableElement.GetCell(1, 4).AddChild(this.Factory.NewText("Title", "Unit"));
+
+        for (int i = 0; i < components.getItemCount(); i++) 
+        {
+            Item c = components.getItemByIndex(i);
+            Item p = c.getItemsByXPath("related_id/Item");
+            int r = i + 2;
+    		tableElement.GetCell(r, 0).AddChild(this.Factory.NewText("Text", c.getProperty("sort_order", " ")));
+    		tableElement.GetCell(r, 1).AddChild(this.Factory.NewText("Text", p.getProperty("item_number")));
+    		tableElement.GetCell(r, 2).AddChild(this.Factory.NewText("Text", p.getProperty("name")));
+    		tableElement.GetCell(r, 3).AddChild(this.Factory.NewText("Text", c.getProperty("quantity", " ")));
+    		tableElement.GetCell(r, 4).AddChild(this.Factory.NewText("Text", p.getProperty("unit")));
+        }
+
+		targetItem.AddChild(tableElement);
+	}
+}]]></method_code>
+  <method_type>C#</method_type>
+  <name>labs_ItemInfoContentGenerator</name>
+ </Item>
+</AML>

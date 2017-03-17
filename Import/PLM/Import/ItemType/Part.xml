@@ -1,0 +1,27 @@
+﻿<AML>
+ <Item type="ItemType" id="4F1AC04A2B484F3ABA4E20DB63808A88" action="edit">
+  <Relationships>
+   <Item type="Property" id="879EAA0579BD4120BF3DF324ABA7A341" action="edit">
+    <column_alignment>left</column_alignment>
+    <column_width>120</column_width>
+    <data_source keyed_name="Part Number">5FB2D3AFF4434B619A7A088B0364C22E</data_source>
+    <data_type>sequence</data_type>
+    <is_hidden>0</is_hidden>
+    <is_hidden2>0</is_hidden2>
+    <is_indexed>1</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <keyed_name_order>1</keyed_name_order>
+    <label xml:lang="en">Part Number</label>
+    <order_by>1</order_by>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="Part" type="ItemType" name="Part">4F1AC04A2B484F3ABA4E20DB63808A88</source_id>
+    <track_history>0</track_history>
+    <name>item_number</name>
+   </Item>
+  </Relationships>
+ </Item>
+</AML>

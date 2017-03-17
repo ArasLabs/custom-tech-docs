@@ -1,0 +1,415 @@
+﻿<AML>
+ <Item type="tp_XmlSchema" id="41EBFC4BCC754274B494BF525F49A6E1" action="add">
+  <content>&lt;xs:schema xmlns="http://www.aras.com/TechDocExample" targetNamespace="http://www.aras.com/TechDocExample" xmlns:aras="http://aras.com/ArasTechDoc" xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"&gt;
+	&lt;xs:import namespace="http://www.w3.org/XML/1998/namespace"/&gt;
+	&lt;xs:import namespace="http://aras.com/ArasTechDoc"/&gt;
+
+	&lt;xs:element name="Standard-Doc"&gt;
+		&lt;xs:complexType&gt;
+			&lt;xs:sequence&gt;
+				&lt;xs:element ref="Title"/&gt;
+				&lt;xs:element ref="Subtitle" minOccurs="0" maxOccurs="1"/&gt;
+				&lt;xs:element ref="Section"  minOccurs="0" maxOccurs="unbounded"/&gt;
+			&lt;/xs:sequence&gt;
+		&lt;/xs:complexType&gt;
+	&lt;/xs:element&gt;
+
+	&lt;xs:element name="Section"&gt;
+		&lt;xs:complexType&gt;
+			&lt;xs:sequence&gt;
+				&lt;xs:element ref="Title" minOccurs="1" maxOccurs="1"/&gt;
+				&lt;xs:choice maxOccurs="unbounded"&gt;
+					&lt;xs:element ref="Text"/&gt;
+					&lt;xs:element ref="List"/&gt;
+					&lt;xs:element ref="Table"/&gt;
+					&lt;xs:element ref="Graphic-Block"/&gt;
+                                        &lt;xs:element ref="Subtitle"/&gt;
+                                        &lt;xs:element ref="ItemInfo"/&gt;
+				&lt;/xs:choice&gt;
+			&lt;/xs:sequence&gt;
+		&lt;/xs:complexType&gt;
+	&lt;/xs:element&gt;
+
+	&lt;xs:element name="Graphic-Block"&gt;
+		&lt;xs:complexType&gt;
+			&lt;xs:sequence&gt;
+				&lt;xs:element ref="Graphic" minOccurs="0" maxOccurs="1"/&gt;
+				&lt;xs:element ref="Label" minOccurs="0" maxOccurs="1"/&gt;
+			&lt;/xs:sequence&gt;
+		&lt;/xs:complexType&gt;
+	&lt;/xs:element&gt;
+
+	&lt;xs:element name="Label"&gt;
+		&lt;xs:complexType&gt;
+			&lt;xs:complexContent&gt;
+				&lt;xs:extension base="aras:text"&gt;
+				&lt;/xs:extension&gt;
+			&lt;/xs:complexContent&gt;
+		&lt;/xs:complexType&gt;
+	&lt;/xs:element&gt;
+
+	&lt;xs:element name="Graphic"&gt;
+		&lt;xs:complexType&gt;
+			&lt;xs:complexContent&gt;
+				&lt;xs:extension base="aras:imageType"&gt;
+				&lt;/xs:extension&gt;
+			&lt;/xs:complexContent&gt;
+		&lt;/xs:complexType&gt;
+	&lt;/xs:element&gt;
+
+	&lt;xs:element name="Title"&gt;
+		&lt;xs:complexType&gt;
+			&lt;xs:complexContent&gt;
+				&lt;xs:extension base="aras:text"&gt;
+				&lt;/xs:extension&gt;
+			&lt;/xs:complexContent&gt;
+		&lt;/xs:complexType&gt;
+	&lt;/xs:element&gt;
+
+	&lt;xs:element name="Subtitle"&gt;
+		&lt;xs:complexType mixed="true"/&gt;
+	&lt;/xs:element&gt;
+
+	&lt;xs:element name="Text"&gt;
+		&lt;xs:complexType&gt;
+			&lt;xs:complexContent&gt;
+				&lt;xs:extension base="aras:text"&gt;
+				&lt;/xs:extension&gt;
+			&lt;/xs:complexContent&gt;
+		&lt;/xs:complexType&gt;
+	&lt;/xs:element&gt;
+
+	&lt;xs:element name="List"&gt;
+		&lt;xs:complexType&gt;
+			&lt;xs:complexContent&gt;
+				&lt;xs:extension base="aras:list"&gt;
+					&lt;xs:choice maxOccurs="unbounded"&gt;
+						&lt;xs:element ref="List-Item" minOccurs="1" maxOccurs="unbounded"/&gt;
+					&lt;/xs:choice&gt;
+				&lt;/xs:extension&gt;
+			&lt;/xs:complexContent&gt;
+		&lt;/xs:complexType&gt;
+	&lt;/xs:element&gt;
+
+	&lt;xs:element name="List-Item"&gt;
+		&lt;xs:complexType&gt;
+			&lt;xs:complexContent&gt;
+				&lt;xs:extension base="aras:listitemType"&gt;
+					&lt;xs:choice maxOccurs="unbounded"&gt;
+						&lt;xs:element ref="Text" /&gt;
+						&lt;xs:element ref="Graphic"/&gt;
+						&lt;xs:element ref="List"/&gt;
+					&lt;/xs:choice&gt;
+				&lt;/xs:extension&gt;
+			&lt;/xs:complexContent&gt;
+		&lt;/xs:complexType&gt;
+	&lt;/xs:element&gt;
+
+	&lt;xs:element name="Table"&gt;
+		&lt;xs:complexType&gt;
+			&lt;xs:complexContent&gt;
+				&lt;xs:extension base="aras:table"&gt;
+				&lt;/xs:extension&gt;
+			&lt;/xs:complexContent&gt;
+		&lt;/xs:complexType&gt;
+	&lt;/xs:element&gt;
+
+	&lt;xs:element name="Row" substitutionGroup="aras:tablerow"&gt;
+		&lt;xs:complexType&gt;
+			&lt;xs:complexContent&gt;
+				&lt;xs:extension base="aras:tr"&gt;&lt;/xs:extension&gt;
+			&lt;/xs:complexContent&gt;
+		&lt;/xs:complexType&gt;
+	&lt;/xs:element&gt;
+
+	&lt;xs:element name="Entry" substitutionGroup="aras:tablecell"&gt;
+		&lt;xs:complexType&gt;
+			&lt;xs:complexContent&gt;
+				&lt;xs:extension base="aras:td"&gt;
+					&lt;xs:choice minOccurs="0" maxOccurs="unbounded"&gt;
+						&lt;xs:element ref="Text" minOccurs="0" maxOccurs="unbounded"/&gt;
+						&lt;xs:element ref="List"/&gt;
+						&lt;xs:element ref="Graphic"/&gt;
+					&lt;/xs:choice&gt;
+				&lt;/xs:extension&gt;
+			&lt;/xs:complexContent&gt;
+		&lt;/xs:complexType&gt;
+	&lt;/xs:element&gt;
+
+	&lt;xs:element name="ItemInfo"&gt;
+		&lt;xs:complexType&gt;
+			&lt;xs:complexContent&gt;
+				&lt;xs:extension base="aras:itemType"&gt;
+					&lt;xs:choice maxOccurs="unbounded"&gt;
+						&lt;xs:element ref="Table" minOccurs="0" maxOccurs="1"/&gt;
+                                                &lt;xs:element ref="Text"/&gt;
+					        &lt;xs:element ref="List"/&gt;
+				        	&lt;xs:element ref="Graphic-Block"/&gt;
+                                                &lt;xs:element ref="Subtitle"/&gt;
+					&lt;/xs:choice&gt;
+				&lt;/xs:extension&gt;
+			&lt;/xs:complexContent&gt;
+		&lt;/xs:complexType&gt;
+	&lt;/xs:element&gt;
+
+&lt;/xs:schema&gt;</content>
+  <name>Standard</name>
+  <Relationships>
+   <Item type="tp_Stylesheet" id="E6B0F93E610A41DE85642363BCFFFB20" action="add">
+    <parent_stylesheet keyed_name="Custom Style Settings" type="tp_Stylesheet">E574711605AF4ADEABF09CFABF4FB829</parent_stylesheet>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="Standard" type="tp_XmlSchema">41EBFC4BCC754274B494BF525F49A6E1</source_id>
+    <style_content>.Standard-Doc {
+	text-align: left;
+	font-family: "Tahoma", Geneva, sans-serif
+}
+
+.Standard-Doc &gt; .Title {
+	margin-top: 15px;
+	font-size: 2em;
+	text-align: center;
+	color: blue;
+}
+
+.Standard-Doc .Subtitle {
+	margin-top: 0px;
+	font-size: 1.3em;
+	text-align: center;
+	color: #0066FF;
+}
+
+.Standard-Doc .Graphic-Block {
+	display: block;
+	margin-top: 8px;
+	margin-bottom: 8px;
+}
+
+.Standard-Doc .Graphic-Block img {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.Standard-Doc .Graphic-Block .Label {
+	color: green;
+	font-size: 1em;
+	text-align: center;
+}
+
+.Standard-Doc .Section &gt; .Title {
+	font-size: 1.5em;
+	font-style: italic;
+	font-weight: bold;
+	color: #505050;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	text-align: left;
+}
+
+.Standard-Doc table {
+	width:100%;
+}
+
+.Standard-Doc .Table, .Standard-Doc .Entry{
+	border: 1px solid white;
+	border-collapse: collapse;
+}
+
+.Standard-Doc  .Entry {
+	padding: 2px;
+	text-align: left;
+	font-size: 1em;
+}
+
+.Standard-Doc .Row:nth-child(even) {
+	background-color: #ddd;
+}
+
+.Standard-Doc  .Row:nth-child(odd) {
+	background-color:#eee;
+}
+
+.Standard-Doc  .Row:nth-child(1) {
+	background-color:#ccc;
+	text-align: center;
+	font-size: 1.1em;
+	font-weight: bold;
+}
+
+.Standard-Doc  .Row:nth-child(1) .Text {
+	text-align: center !important;
+}
+
+.Standard-Doc .List, .Standard-Doc .Table {
+	margin-top: 8px;
+	margin-bottom: 8px;
+}
+
+.ItemInfo .Row:nth-of-type(-n+2) {
+	min-height: 20px;
+	background-color: #DDE7F5;
+	font-size: 1em;
+	font-weight: bold;
+}
+
+.ItemInfo .Title {
+	padding: 2px;
+	text-align: center;
+}
+
+.ItemInfo .Row:nth-of-type(2) {
+	font-size: 1em;
+}
+</style_content>
+    <name>Standard Style Settings</name>
+   </Item>
+   <Item type="tp_Stylesheet" id="E574711605AF4ADEABF09CFABF4FB829" action="add">
+    <sort_order>256</sort_order>
+    <source_id keyed_name="Standard" type="tp_XmlSchema">41EBFC4BCC754274B494BF525F49A6E1</source_id>
+    <style_content>/* These CSS rules will override the rules in Standard Style Settings */
+
+
+/**** Define Font Families ***************/
+
+@import url('https://fonts.googleapis.com/css?family=Raleway:900,600,400,400i');
+@import url('https://fonts.googleapis.com/css?family=Lato:400,700,400i,700i');
+
+/**** Assign Font Styles ***************/
+
+@page {
+    @bottom-right {
+        font-family: 'Lato', sans-serif;
+        font-weight: regular;
+        color: #1c1c1c;
+        font-size: 10pt;
+    }
+}
+
+body {
+    text-align: left;
+    font-family: 'Lato', sans-serif;
+    font-weight: regular;
+    color: #1c1c1c;
+    font-size: 10pt;
+}
+
+.Standard-Doc .Title {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 900;
+    font-size: 32pt;
+    text-align: center;
+    color: #18314F;
+    margin-bottom: 0px;
+}
+
+.Standard-Doc .Subtitle {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 600;
+    font-size: 24pt;
+    margin-top: 0px;
+    text-align: center;
+    color: #40798C;
+}
+
+.Standard-Doc .Section&gt;.Title {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 600;
+    font-size: 24pt;
+    font-style: normal;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-align: left;
+    color: #18314F;
+    border-bottom: 5px double;
+}
+
+.Standard-Doc .Section&gt;.Subtitle {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 400;
+    font-size: 16pt;
+    font-style: italic;
+    text-align: left;
+    color: #40798C;
+}
+
+.Item-Info {
+    width: 50%;
+}
+
+.ItemInfo .Row:nth-of-type(-n+2) {
+	min-height: 20px;
+	background-color: #DDE7F5;
+	font-size: 1em;
+	font-weight: bold;
+}
+
+.ItemInfo .Title {
+    text-align: left;
+    font-family: 'Lato', sans-serif;
+    font-weight: 700;
+    color: #1c1c1c;
+    font-size: 12pt;
+}
+
+.ItemInfo .Row:nth-of-type(2) {
+	font-size: 1em;
+}
+
+.ItemInfo .Row:first-child .Title {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 400;
+    font-size: 16pt;
+    font-style: italic;
+    color: #18314F;
+	padding: 2px;
+	text-align: center;
+}
+
+.ItemInfo .Row:last-child .Title {
+    text-align: left;
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+    color: #1c1c1c;
+    font-size: 10pt;
+}
+</style_content>
+    <name>Custom Style Settings</name>
+   </Item>
+   <Item type="tp_XmlSchemaElement" id="37BE25ACED9B46BEA12D66F69703C105" action="add">
+    <content_generator keyed_name="labs_ItemInfoContentGenerator" type="Method">E64142C526954AE6A3E268043D8A5C3F</content_generator>
+    <is_content_dynamic>0</is_content_dynamic>
+    <name>ItemInfo</name>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="Standard" type="tp_XmlSchema">41EBFC4BCC754274B494BF525F49A6E1</source_id>
+   </Item>
+   <Item type="tp_XmlSchemaOutputSetting" id="C4CE49D74CA74688AA5B6F3DD84385E1" action="add">
+    <classification>Editor</classification>
+    <indentation>0</indentation>
+    <name>Editor Settings</name>
+    <omit_xml_declaration>0</omit_xml_declaration>
+    <sort_order>256</sort_order>
+    <source_id keyed_name="Standard" type="tp_XmlSchema">41EBFC4BCC754274B494BF525F49A6E1</source_id>
+    <stylesheet_id keyed_name="Standard Style Settings" type="tp_Stylesheet">E6B0F93E610A41DE85642363BCFFFB20</stylesheet_id>
+   </Item>
+   <Item type="tp_XmlSchemaOutputSetting" id="B6DF519CB2DB402CACDC47AFE5D8F3AF" action="add">
+    <classification>Html</classification>
+    <indentation>0</indentation>
+    <name>HTML Settings</name>
+    <omit_xml_declaration>0</omit_xml_declaration>
+    <sort_order>384</sort_order>
+    <source_id keyed_name="Standard" type="tp_XmlSchema">41EBFC4BCC754274B494BF525F49A6E1</source_id>
+    <stylesheet_id keyed_name="Standard Style Settings" type="tp_Stylesheet">E6B0F93E610A41DE85642363BCFFFB20</stylesheet_id>
+   </Item>
+   <Item type="tp_XmlSchemaOutputSetting" id="2D5992CA6B004575ACE89EAA5DE8C9F6" action="add">
+    <classification>PDF</classification>
+    <indentation>0</indentation>
+    <name>PDF Settings</name>
+    <omit_xml_declaration>0</omit_xml_declaration>
+    <sort_order>512</sort_order>
+    <source_id keyed_name="Standard" type="tp_XmlSchema">41EBFC4BCC754274B494BF525F49A6E1</source_id>
+    <stylesheet_id keyed_name="Standard Style Settings" type="tp_Stylesheet">E6B0F93E610A41DE85642363BCFFFB20</stylesheet_id>
+   </Item>
+  </Relationships>
+  <target_namespace>http://www.aras.com/TechDocExample</target_namespace>
+ </Item>
+</AML>

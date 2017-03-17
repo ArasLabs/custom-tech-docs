@@ -1,0 +1,9 @@
+﻿<AML>
+ <Item type="tp_XmlSchemaElement" id="37BE25ACED9B46BEA12D66F69703C105" action="add">
+  <content_generator keyed_name="labs_ItemInfoContentGenerator" type="Method">E64142C526954AE6A3E268043D8A5C3F</content_generator>
+  <is_content_dynamic>0</is_content_dynamic>
+  <name>ItemInfo</name>
+  <sort_order>128</sort_order>
+  <source_id keyed_name="Standard" type="tp_XmlSchema">41EBFC4BCC754274B494BF525F49A6E1</source_id>
+ </Item>
+</AML>
