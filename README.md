@@ -18,6 +18,9 @@ Firefox 38 ESR
 > Though built and tested using Aras 11.0 SP9, this project should function in older releases of Aras 11.0.
 
 ## How It Works
+
+![Customized ItemInfo Element](./Screenshots/catalog-in-editor.png)
+
 The project's import package adds a new content generator method for the ItemInfo schema element, replacing the out-of-the-box implementation. The new content generator method, `labs_ItemInfoContentGenerator`, populates every new ItemInfo element with the name, description, cost, major revision/generation, state, and created date for the selected assembly (Part item). The method also adds the assembly's BOM in a tabular layout.
 
 ## Installation
