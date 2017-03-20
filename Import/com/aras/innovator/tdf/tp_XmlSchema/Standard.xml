@@ -285,6 +285,54 @@
     }
 }
 
+@page:first {
+  background-image: url('');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: auto;
+
+  @bottom {
+    font-family: 'Lato', sans-serif;
+    font-weight: regular;
+    color: #FFFFFF;
+    font-size: 10pt;
+    background-color: #40798C;
+    width: 100%;
+  }
+  @bottom-left-corner {
+    content: " ";
+    background-color: #40798C;
+  }
+  @bottom-right-corner {
+    content: " ";
+    background-color: #40798C;
+  }
+  @top {
+    font-family: 'Lato', sans-serif;
+    font-weight: regular;
+    color: #FFFFFF;
+    font-size: 10pt;
+    background-color: #40798C;
+    width: 100%;
+    /*content: "Aras Corporation Demo Series";*/
+  }
+  @top-left-corner {
+    content: " ";
+    background-color: #40798C;
+  }
+  @top-right-corner {
+    content: " ";
+    background-color: #40798C;
+  }
+  @bottom-right {
+        content: normal;
+    }
+    @bottom-center {
+        content: "Published Using Aras Tech Docs";
+    }
+}
+
 body {
     text-align: left;
     font-family: 'Lato', sans-serif;
@@ -292,14 +340,39 @@ body {
     color: #1c1c1c;
     font-size: 10pt;
 }
+/**** Override Baseline Doc Styles ***************/
 
-.Standard-Doc .Title {
+.ArasList .ArasListItemElement.bulletListItem::before,
+.ArasList .ArasListItemElement.numericListItem::before,
+.ArasList .ArasListItemElement.alphaListItem::before {
+    font-size: 10pt;
+    top: 0px;
+}
+/**** Custom AutoNumber Styles ***************/
+
+body {
+    counter-reset: sectionNum;
+    /*counter-reset: subtitleNum;*/
+    background-color: transparent;
+}
+
+.Standard-Doc &gt; .Title {
     font-family: 'Raleway', sans-serif;
     font-weight: 900;
     font-size: 32pt;
     text-align: center;
     color: #18314F;
     margin-bottom: 0px;
+}
+
+.Section {
+    page-break-before: always;
+    counter-reset: subsectionNum;
+    counter-increment: sectionNum;
+}
+
+.Section &gt; .Title::before {
+    content: counter(sectionNum, upper-alpha) ". ";
 }
 
 .Standard-Doc .Subtitle {
@@ -332,6 +405,13 @@ body {
     color: #40798C;
 }
 
+.Section .ItemInfo {
+	counter-increment: subsectionNum;
+}
+
+.Section .ItemInfo &gt; .Title::before {
+	content: counter(subsectionNum) ". ";
+}
 .ItemInfo table {
     table-layout: fixed;
     width: 90%;
@@ -451,15 +531,82 @@ body {
         font-weight: regular;
         color: #1c1c1c;
         font-size: 10pt;
+        content: counter(page);
     }
 }
 
+@page:first {
+  background-image: url('');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: auto;
+
+  @bottom {
+    font-family: 'Lato', sans-serif;
+    font-weight: regular;
+    color: #FFFFFF;
+    font-size: 10pt;
+    background-color: #40798C;
+    width: 100%;
+  }
+  @bottom-left-corner {
+    content: " ";
+    background-color: #40798C;
+  }
+  @bottom-right-corner {
+    content: " ";
+    background-color: #40798C;
+  }
+  @top {
+    font-family: 'Lato', sans-serif;
+    font-weight: regular;
+    color: #FFFFFF;
+    font-size: 10pt;
+    background-color: #40798C;
+    width: 100%;
+    /*content: "Aras Corporation Demo Series";*/
+  }
+  @top-left-corner {
+    content: " ";
+    background-color: #40798C;
+  }
+    @top-center {
+    content: " ";
+    background-color: #40798C;
+  }
+  @top-right-corner {
+    content: " ";
+    background-color: #40798C;
+  }
+  @bottom-right {
+        content: normal;
+    }
+    @bottom-center {
+        content: "Published Using Aras Tech Docs";
+    }
+}
 body {
     text-align: left;
     font-family: 'Lato', sans-serif;
     font-weight: regular;
     color: #1c1c1c;
     font-size: 10pt;
+}
+
+/**** Override Baseline Doc Styles ***************/
+
+.ArasList .ArasListItemElement.bulletListItem::before,
+.ArasList .ArasListItemElement.numericListItem::before,
+.ArasList .ArasListItemElement.alphaListItem::before {
+    font-size: 10pt;
+    top: 0px;
+}
+/**** Custom AutoNumber Styles ***************/
+
+body {
+    counter-reset: sectionNum;
+    background-color: transparent;
 }
 
 .Standard-Doc .Title,
@@ -470,6 +617,20 @@ body {
     text-align: center;
     color: #18314F;
     margin-bottom: 0px;
+}
+
+.Standard-Doc &gt; .Title {
+    margin-top: 300px;
+}
+
+.Section {
+    page-break-before: always;
+    counter-reset: subsectionNum;
+    counter-increment: sectionNum;
+}
+
+.Section &gt; .Title::before {
+    content: counter(sectionNum, upper-alpha) ". ";
 }
 
 .Standard-Doc .Subtitle {
@@ -518,6 +679,14 @@ body {
     font-style: italic;
     text-align: left;
     color: #40798C;
+}
+
+.Section .ItemInfo {
+	counter-increment: subsectionNum;
+}
+
+.Section .ItemInfo &gt; .Title::before {
+	content: counter(subsectionNum) ". ";
 }
 
 .Standard-Doc table {
