@@ -72,6 +72,8 @@
     <sort_order>256</sort_order>
     <source_id keyed_name="tp_Block" type="ItemType" name="tp_Block">ED9F61ADA4334D7D94361F426C081DB5</source_id>
    </Item>
+  </Relationships>
+ </Item>
  <Item type="ItemType" id="ED9F61ADA4334D7D94361F426C081DB5" action="edit">
   <Relationships>
    <Item type="Property" id="109B01C4E97D435D87EE65D7D9361C91" action="edit">
