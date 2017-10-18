@@ -1,0 +1,28 @@
+﻿<AML>
+ <Item type="Method" id="2EF6C0DAB917479C8C88227EE150638E" action="add">
+  <comments>Calls copyAsNew to create new doc from the context tp_Block item</comments>
+  <execution_allowed_to keyed_name="World" type="Identity">A73B655731924CD0B027E4F4D5FCC0A9</execution_allowed_to>
+  <method_code><![CDATA[/*
+* Author: Eli Donahue (Aras Labs)
+* Name: labs_SpawnFromTemplate
+* Description: Calls copyAsNew to create new doc from the context tp_Block item. 
+*              onBeforeCopy/onAfterCopy events set special properties on doc.
+* Params: this = tp_Block item
+* Preconditions: is_template = 1 on context item
+********************************************************************************
+* 09-01-2017 : Packaged for deployment to MyI
+*/
+
+var inn = this.getInnovator();
+var thisId = this.getID();
+var thisDoc = inn.getItemById("tp_Block",thisId);
+
+thisDoc.setAction("copyAsNew");
+thisDoc = thisDoc.apply();
+
+// show new doc window after it is created
+aras.uiShowItem("tp_Block", thisDoc.getID(), "tab view");]]></method_code>
+  <method_type>JavaScript</method_type>
+  <name>labs_SpawnFromTemplate</name>
+ </Item>
+</AML>

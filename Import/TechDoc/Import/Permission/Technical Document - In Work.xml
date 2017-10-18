@@ -1,0 +1,67 @@
+﻿<AML>
+ <Item type="Permission" id="1D649D4B762D4F2998CE8424EB52F333" action="add">
+  <is_private>0</is_private>
+  <name>Technical Document - In Work</name>
+  <Relationships>
+   <Item type="Access" id="2A2C473AF96E40AD945AEA26EB7FE6F5" action="add">
+    <can_change_access>0</can_change_access>
+    <can_delete>1</can_delete>
+    <can_discover>1</can_discover>
+    <can_get>1</can_get>
+    <can_update>1</can_update>
+    <related_id keyed_name="Creator" type="Identity">
+     <Item type="Identity" action="get" select="id">
+      <name>Creator</name>
+     </Item>
+    </related_id>
+    <show_permissions_warning>1</show_permissions_warning>
+    <sort_order>512</sort_order>
+    <source_id keyed_name="Technical Document - In Work" type="Permission">1D649D4B762D4F2998CE8424EB52F333</source_id>
+   </Item>
+   <Item type="Access" id="53240F72DC584BB49990D59B0E70BC97" action="add">
+    <can_change_access>0</can_change_access>
+    <can_delete>0</can_delete>
+    <can_discover>1</can_discover>
+    <can_get>1</can_get>
+    <can_update>0</can_update>
+    <related_id keyed_name="All Employees" type="Identity">B32BD81D1AD04207BF1E61E39A4E0E13</related_id>
+    <show_permissions_warning>1</show_permissions_warning>
+    <sort_order>384</sort_order>
+    <source_id keyed_name="Technical Document - In Work" type="Permission">1D649D4B762D4F2998CE8424EB52F333</source_id>
+   </Item>
+   <Item type="Access" id="5D426EE7E45E4E4A8B0F6B0A3CC6547A" action="add">
+    <can_change_access>1</can_change_access>
+    <can_delete>1</can_delete>
+    <can_discover>1</can_discover>
+    <can_get>1</can_get>
+    <can_update>1</can_update>
+    <related_id keyed_name="Technical Document Administrator" type="Identity">719FA509EF8C4944AEEF468604A85E1D</related_id>
+    <show_permissions_warning>1</show_permissions_warning>
+    <sort_order>256</sort_order>
+    <source_id keyed_name="Technical Document - In Work" type="Permission">1D649D4B762D4F2998CE8424EB52F333</source_id>
+   </Item>
+   <Item type="Access" id="EB9CA24C148D43B1B43195844BADBD2A" action="add">
+    <can_change_access>0</can_change_access>
+    <can_delete>0</can_delete>
+    <can_discover>1</can_discover>
+    <can_get>1</can_get>
+    <can_update>1</can_update>
+    <related_id keyed_name="Technical Document Author" type="Identity">6E4010637C1941748089C622D9C259F2</related_id>
+    <show_permissions_warning>1</show_permissions_warning>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="Technical Document - In Work" type="Permission">1D649D4B762D4F2998CE8424EB52F333</source_id>
+   </Item>
+   <Item type="Access" id="F86737D13E42442CA5CE0D6E502F14B1" action="add">
+    <can_change_access>0</can_change_access>
+    <can_delete>0</can_delete>
+    <can_discover>1</can_discover>
+    <can_get>1</can_get>
+    <can_update>1</can_update>
+    <related_id keyed_name="Technical Document Template Admin" type="Identity">8DA368B8CDC14820813772B2E50A7A87</related_id>
+    <show_permissions_warning>1</show_permissions_warning>
+    <sort_order>640</sort_order>
+    <source_id keyed_name="Technical Document - In Work" type="Permission">1D649D4B762D4F2998CE8424EB52F333</source_id>
+   </Item>
+  </Relationships>
+ </Item>
+</AML>

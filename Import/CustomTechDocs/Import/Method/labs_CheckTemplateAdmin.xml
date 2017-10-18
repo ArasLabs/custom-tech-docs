@@ -1,0 +1,31 @@
+﻿<AML>
+ <Item type="Method" id="85B2E8A0DA9F495687E42CD6A570EED0" action="add">
+  <comments>onBeforeAdd/Update event checks if user can set is_template flag</comments>
+  <execution_allowed_to keyed_name="World" type="Identity">A73B655731924CD0B027E4F4D5FCC0A9</execution_allowed_to>
+  <method_code><![CDATA[/*
+* Author: Eli Donahue (Aras Labs)
+* Name: labs_CheckTemplateAdmin
+* Description: If context contains is_template=1, check user permissions
+* Params: this = tp_Block item
+* Preconditions: n/a
+********************************************************************************
+* 09-05-2017 : Packaged for deployment to MyI
+*/
+
+if (this.getProperty("is_template","0") == "0")
+    return this;
+
+// check if current user is a tech doc template admin
+string techDocTemplateAdminId = "8DA368B8CDC14820813772B2E50A7A87"; 
+string userids = Aras.Server.Security.Permissions.Current.IdentitiesList;
+
+if (userids.IndexOf(techDocTemplateAdminId) >= 0)
+    return this;
+    
+// if still here, user is not an admin. throw error
+Innovator inn = this.getInnovator();
+return inn.newError("The current user is not a Template Admin and cannot save Tech Doc templates.");]]></method_code>
+  <method_type>C#</method_type>
+  <name>labs_CheckTemplateAdmin</name>
+ </Item>
+</AML>

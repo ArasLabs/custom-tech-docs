@@ -1,0 +1,15 @@
+<AML>
+ <Item type="Identity" id="8DA368B8CDC14820813772B2E50A7A87" action="add">
+  <_eto_balance>0.00</_eto_balance>
+  <_eto_earned>0.00</_eto_earned>
+  <description>Creates and manages template Documents</description>
+  <is_alias>0</is_alias>
+  <name>Technical Document Template Admin</name>
+  <Relationships />
+ </Item>
+ <Item type="Member" id="D0820001CB7747BA894A6014D89F5ED3" action="add">
+  <related_id keyed_name="Technical Document Administrator" type="Identity">719FA509EF8C4944AEEF468604A85E1D</related_id>
+  <sort_order>128</sort_order>
+  <source_id keyed_name="Technical Document Template Admin" type="Identity">8DA368B8CDC14820813772B2E50A7A87</source_id>
+ </Item>
+</AML>
