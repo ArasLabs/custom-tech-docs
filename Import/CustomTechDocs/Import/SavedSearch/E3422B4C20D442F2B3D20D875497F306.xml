@@ -1,0 +1,13 @@
+﻿<AML>
+ <Item type="SavedSearch" id="E3422B4C20D442F2B3D20D875497F306" action="add">
+  <auto_saved>0</auto_saved>
+  <criteria>&lt;Item type="tp_Block" action="get" page="1" select="classification,is_template,item_number,name,xml_schema,created_by_id,created_on,modified_by_id,modified_on,locked_by_id,major_rev,css,current_state,keyed_name,new_version,generation,release_date,effective_date,is_current" pagesize="50" maxRecords=""&gt;&lt;is_template condition="eq"&gt;1&lt;/is_template&gt;&lt;/Item&gt;</criteria>
+  <itname>tp_Block</itname>
+  <label xml:lang="en">Templates</label>
+  <location>Main Grid</location>
+  <managed_by_id keyed_name="Innovator Admin" type="Identity">DBA5D86402BF43D5976854B8B48FCDD1</managed_by_id>
+  <owned_by_id keyed_name="World" type="Identity">A73B655731924CD0B027E4F4D5FCC0A9</owned_by_id>
+  <search_mode keyed_name="Simple" type="SearchMode">BD84BCA3EC064D77BF3772A9D93308B6</search_mode>
+  <show_on_toc>1</show_on_toc>
+ </Item>
+</AML>
