@@ -2,26 +2,27 @@
 
 Demonstrates how to create a custom content generator for Tech Doc schema elements.
 
-## Project Details
-
-See [TESTSTATUS file](./TESTSTATUS.md) for latest testing information.
-
-#### Built Using:
-Aras 11.0 SP9
-
-#### Versions Tested:
-Aras 11.0 SP9 (open release)
-
-#### Browsers Tested:
-Firefox 38 ESR
-
-> Though built and tested using Aras 11.0 SP9, this project should function in older releases of Aras 11.0.
-
 ## How It Works
 
 ![Customized ItemInfo Element](./Screenshots/catalog-in-editor.png)
 
 The project's import package adds a new content generator method for the ItemInfo schema element, replacing the out-of-the-box implementation. The new content generator method, `labs_ItemInfoContentGenerator`, populates every new ItemInfo element with the name, description, cost, major revision/generation, state, and created date for the selected assembly (Part item). The method also adds the assembly's BOM in a tabular layout.
+
+## History
+
+This project and the following release notes have been migrated from the old Aras Projects page.
+
+Release | Notes
+--------|--------
+[v1.1](https://github.com/ArasLabs/custom-tech-docs/releases/tag/v1.1) | Fixes an import error.
+[v1.0](https://github.com/ArasLabs/custom-tech-docs/releases/tag/v1.0) | First release. Though built and tested using Aras 11.0 SP9, this project may function in older releases of Aras 11.0.
+
+#### Supported Aras Versions
+
+Project | Aras
+--------|------
+[v1.1](https://github.com/ArasLabs/custom-tech-docs/releases/tag/v1.1) | 11.0 SP9
+[v1.0](https://github.com/ArasLabs/custom-tech-docs/releases/tag/v1.0) | 11.0 SP9
 
 ## Installation
 
