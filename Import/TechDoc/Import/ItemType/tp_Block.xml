@@ -1,4 +1,79 @@
 ﻿<AML>
+ <Item type="ItemType" id="ED9F61ADA4334D7D94361F426C081DB5" action="add">
+  <Relationships>
+   <Item type="Property" id="FC3C7B344EDF4AC593ED894F4D75587F" action="add">
+    <column_alignment>left</column_alignment>
+    <data_type>boolean</data_type>
+    <default_value xml:lang="en">0</default_value>
+    <is_hidden>0</is_hidden>
+    <is_hidden2>0</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <label xml:lang="en">Is Template</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>9600</sort_order>
+    <source_id keyed_name="tp_Block" type="ItemType" name="tp_Block">ED9F61ADA4334D7D94361F426C081DB5</source_id>
+    <track_history>0</track_history>
+    <name>is_template</name>
+   </Item>
+   <Item type="Server Event" id="4F60E52D061F467CAAC659A07BEA3F90" action="add">
+    <event_version>version_1</event_version>
+    <is_required>0</is_required>
+    <related_id keyed_name="labs_RemoveIsTemplateFlag" type="Method">
+     <Item type="Method" action="get" select="id">
+      <name>labs_RemoveIsTemplateFlag</name>
+     </Item>
+    </related_id>
+    <server_event>onAfterCopy</server_event>
+    <sort_order>768</sort_order>
+    <source_id keyed_name="tp_Block" type="ItemType" name="tp_Block">ED9F61ADA4334D7D94361F426C081DB5</source_id>
+   </Item>
+   <Item type="Server Event" id="80EC806D7C354B55A8D89F60C4CCA812" action="add">
+    <event_version>version_1</event_version>
+    <is_required>0</is_required>
+    <related_id keyed_name="labs_CheckTemplateAdmin" type="Method">
+     <Item type="Method" action="get" select="id">
+      <name>labs_CheckTemplateAdmin</name>
+     </Item>
+    </related_id>
+    <server_event>onBeforeAdd</server_event>
+    <sort_order>896</sort_order>
+    <source_id keyed_name="tp_Block" type="ItemType" name="tp_Block">ED9F61ADA4334D7D94361F426C081DB5</source_id>
+   </Item>
+   <Item type="Server Event" id="EE0EB2F556D44F8FB357266F69E5539C" action="add">
+    <event_version>version_1</event_version>
+    <is_required>0</is_required>
+    <related_id keyed_name="labs_ConfirmTechDocIsTemplate" type="Method">
+     <Item type="Method" action="get" select="id">
+      <name>labs_ConfirmTechDocIsTemplate</name>
+     </Item>
+    </related_id>
+    <server_event>onBeforeCopy</server_event>
+    <sort_order>640</sort_order>
+    <source_id keyed_name="tp_Block" type="ItemType" name="tp_Block">ED9F61ADA4334D7D94361F426C081DB5</source_id>
+   </Item>
+   <Item type="Server Event" id="DFE3E1DBEF6C4AAEAED3C36256678EBE" action="add">
+    <event_version>version_1</event_version>
+    <is_required>0</is_required>
+    <related_id keyed_name="labs_CheckTemplateAdmin" type="Method">
+     <Item type="Method" action="get" select="id">
+      <name>labs_CheckTemplateAdmin</name>
+     </Item>
+    </related_id>
+    <server_event>onBeforeUpdate</server_event>
+    <sort_order>1024</sort_order>
+    <source_id keyed_name="tp_Block" type="ItemType" name="tp_Block">ED9F61ADA4334D7D94361F426C081DB5</source_id>
+   </Item>
+   <Item type="Item Action" id="8F96D6D92BC6488EBE44C2F615C8634F" action="add">
+    <related_id keyed_name="Create New From Template" type="Action">7EF4F89C64FE405899DCF81F3E3A230F</related_id>
+    <sort_order>256</sort_order>
+    <source_id keyed_name="tp_Block" type="ItemType" name="tp_Block">ED9F61ADA4334D7D94361F426C081DB5</source_id>
+   </Item>
+  </Relationships>
+ </Item>
  <Item type="ItemType" id="ED9F61ADA4334D7D94361F426C081DB5" action="edit">
   <Relationships>
    <Item type="Property" id="109B01C4E97D435D87EE65D7D9361C91" action="edit">
@@ -9,7 +84,7 @@
     <is_hidden>0</is_hidden>
     <is_hidden2>0</is_hidden2>
     <is_indexed>1</is_indexed>
-    <is_keyed>0</is_keyed>
+    <is_keyed>1</is_keyed>
     <is_multi_valued>0</is_multi_valued>
     <is_required>0</is_required>
     <keyed_name_order>1</keyed_name_order>

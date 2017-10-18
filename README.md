@@ -14,6 +14,7 @@ This project and the following release notes have been migrated from the old Ara
 
 Release | Notes
 --------|--------
+[v1.2](https://github.com/ArasLabs/custom-tech-docs/releases/tag/v1.2) | Adds template functionality.
 [v1.1](https://github.com/ArasLabs/custom-tech-docs/releases/tag/v1.1) | Fixes an import error.
 [v1.0](https://github.com/ArasLabs/custom-tech-docs/releases/tag/v1.0) | First release. Though built and tested using Aras 11.0 SP9, this project may function in older releases of Aras 11.0.
 
@@ -21,6 +22,7 @@ Release | Notes
 
 Project | Aras
 --------|------
+[v1.2](https://github.com/ArasLabs/custom-tech-docs/releases/tag/v1.2) | 11.0 SP9
 [v1.1](https://github.com/ArasLabs/custom-tech-docs/releases/tag/v1.1) | 11.0 SP9
 [v1.0](https://github.com/ArasLabs/custom-tech-docs/releases/tag/v1.0) | 11.0 SP9
 
@@ -41,15 +43,15 @@ Project | Aras
 1. Backup your database and store the BAK file in a safe place.
 2. Open up the Aras Package Import tool.
 3. Enter your login credentials and click **Login**
-  * _Note: You must login as root for the package import to succeed!_
+    * _Note: You must login as root for the package import to succeed!_
 4. Enter the package name in the TargetRelease field.
-  * Optional: Enter a description in the Description field.
+    * Optional: Enter a description in the Description field.
 5. Enter the path to your local `..\CustomTechDocs\Import\imports.mf` file in the Manifest File field.
 6. Select the following in the Available for Import field.
-  * **aras.labs.CustomTechDocs**
-  * **com.aras.innovator.solution.TechDoc**
-  * **com.aras.innovator.tdf**
-  * **com.aras.innovator.solution.PLM**
+    * **aras.labs.CustomTechDocs**
+    * **com.aras.innovator.solution.TechDoc**
+    * **com.aras.innovator.tdf**
+    * **com.aras.innovator.solution.PLM**
 7. Select Type = **Merge** and Mode = **Thorough Mode**.
 8. Click **Import** in the top left corner.
 9. Close the Aras Package Import tool.
@@ -58,6 +60,8 @@ You are now ready to login to Aras and try out the CustomTechDocs project.
 
 ## Usage
 
+### Customized Item-Info Element
+
 **Pre-requisite:** The Aras instance should include some Parts with BOM relationships.
 
 1. Log in to Aras as admin.
@@ -65,6 +69,19 @@ You are now ready to login to Aras and try out the CustomTechDocs project.
 3. Create a new Technical Document with the `Standard` schema.
 4. Add an ItemInfo element to the document, selecting a Part with Part BOM relationships when the search dialog appears.
 5. Save the document.
+
+### Tech Doc Templates
+
+1. Log in to Aras as admin.
+2. Navigate to **Technical Documentation > Technical Documents**.
+3. Create a new Technical Document with the `Standard` schema.
+4. Check off the **Is Template** field on the Tech Doc form.
+5. Save the document.
+6. Add some content to the template document.
+7. Save, unlock and close the document.
+8. In the main grid, right click the new template document and select **Create New From Template**.
+
+The new document will open in a new tab. The content will be populated based on the selected template.
 
 ## Contributing
 
