@@ -1,4 +1,24 @@
 ﻿<AML>
+ <Item type="ItemType" id="ED9F61ADA4334D7D94361F426C081DB5" action="add">
+  <Relationships>
+   <Item type="Property" id="FC3C7B344EDF4AC593ED894F4D75587F" action="add">
+    <column_alignment>left</column_alignment>
+    <data_type>boolean</data_type>
+    <default_value xml:lang="en">0</default_value>
+    <is_hidden>0</is_hidden>
+    <is_hidden2>0</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <label xml:lang="en">Is Template</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>9600</sort_order>
+    <source_id keyed_name="tp_Block" type="ItemType" name="tp_Block">ED9F61ADA4334D7D94361F426C081DB5</source_id>
+    <track_history>0</track_history>
+    <name>is_template</name>
+   </Item>
  <Item type="ItemType" id="ED9F61ADA4334D7D94361F426C081DB5" action="edit">
   <Relationships>
    <Item type="Property" id="109B01C4E97D435D87EE65D7D9361C91" action="edit">
