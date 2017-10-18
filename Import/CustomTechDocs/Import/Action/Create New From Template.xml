@@ -1,0 +1,15 @@
+﻿<AML>
+ <Item type="Action" id="7EF4F89C64FE405899DCF81F3E3A230F" action="add">
+  <item_query>&lt;Item type="{@type}" id="{@id}" levels= "1" action="get" /&gt;</item_query>
+  <label xml:lang="en">Create New From Template</label>
+  <location>client</location>
+  <method keyed_name="labs_SpawnFromTemplate" type="Method">
+   <Item type="Method" action="get" select="id">
+    <name>labs_SpawnFromTemplate</name>
+   </Item>
+  </method>
+  <target>none</target>
+  <type>item</type>
+  <name>Create New From Template</name>
+ </Item>
+</AML>

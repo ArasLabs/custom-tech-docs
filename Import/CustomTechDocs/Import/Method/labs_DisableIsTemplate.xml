@@ -1,0 +1,31 @@
+﻿<AML>
+ <Item type="Method" id="4E18C9B596F04437BEFBBE8B52696EAF" action="add">
+  <comments>Disables is_template field on tp_Block form for non-admin users</comments>
+  <execution_allowed_to keyed_name="World" type="Identity">A73B655731924CD0B027E4F4D5FCC0A9</execution_allowed_to>
+  <method_code><![CDATA[/*
+* Author: Eli Donahue (Aras Labs)
+* Name: labs_DisableIsTemplate
+* Description: Disables is_template field on tp_Block form for non-admin users
+* Params: n/a
+* Preconditions: n/a
+********************************************************************************
+* 09-01-2017 : Packaged for deployment to MyI
+*/
+
+var inn = document.thisItem.getInnovator();
+
+// check if current user is a tech doc template admin
+var techDocTemplateAdminId = "8DA368B8CDC14820813772B2E50A7A87";
+var userIds = aras.getIdentityList().split(',');
+
+if (userIds.indexOf(techDocTemplateAdminId) >= 0)
+    return;
+    
+// if not an admin, disable the is_template field
+var is_template = getFieldByName("is_template").getElementsByTagName("input")[0];
+is_template.disabled = true;
+]]></method_code>
+  <method_type>JavaScript</method_type>
+  <name>labs_DisableIsTemplate</name>
+ </Item>
+</AML>

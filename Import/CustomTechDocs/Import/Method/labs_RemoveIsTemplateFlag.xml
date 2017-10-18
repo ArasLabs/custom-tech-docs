@@ -1,0 +1,23 @@
+﻿<AML>
+ <Item type="Method" id="4F6F124DC15745B88805451F595D3D53" action="add">
+  <comments>onAfterCopy event to remove is_template flag from copied tech doc</comments>
+  <execution_allowed_to keyed_name="World" type="Identity">A73B655731924CD0B027E4F4D5FCC0A9</execution_allowed_to>
+  <method_code><![CDATA[/*
+* Author: Eli Donahue (Aras Labs)
+* Name: labs_RemoveIsTemplateFlag
+* Description: onAfterCopy event to remove is_template flag from copied tech doc
+* Params: this = tp_Block item
+* Preconditions: n/a
+********************************************************************************
+* 09-01-2017 : Packaged for deployment to MyI
+*/
+
+this.setProperty("is_template","0");
+this.setAction("edit");
+
+Item res = this.apply();
+return res;]]></method_code>
+  <method_type>C#</method_type>
+  <name>labs_RemoveIsTemplateFlag</name>
+ </Item>
+</AML>

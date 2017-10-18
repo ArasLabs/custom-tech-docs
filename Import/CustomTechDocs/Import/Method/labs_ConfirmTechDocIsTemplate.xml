@@ -1,0 +1,32 @@
+﻿<AML>
+ <Item type="Method" id="A552DA928F1347639375D2DDABAA9047" action="add">
+  <comments>onBeforeCopy event to confirm tp_Block is template and rename new doc</comments>
+  <execution_allowed_to keyed_name="World" type="Identity">A73B655731924CD0B027E4F4D5FCC0A9</execution_allowed_to>
+  <method_code><![CDATA[/*
+* Author: Eli Donahue (Aras Labs)
+* Name: labs_ConfirmTechDocIsTemplate
+* Description: Confirms onBeforeCopy that context item is a template tp_Block. 
+*              If so, set the name of new document. Else, return error.
+* Params: this = tp_Block item
+* Preconditions: is_template = 1 on context item
+********************************************************************************
+* 09-01-2017 : Packaged for deployment to MyI
+*/
+
+Innovator inn = this.getInnovator();
+Item template = inn.getItemById("tp_Block",this.getID());
+
+bool is_template = template.getProperty("is_template","0") == "0";
+string name = template.getProperty("name","");
+
+if (is_template)
+    return inn.newError("Tech Doc '" + name + "' is not a template document!");
+
+this.setAttribute("useInputProperties", "1");
+this.setProperty("name","New from Template : " + name);
+
+return this;]]></method_code>
+  <method_type>C#</method_type>
+  <name>labs_ConfirmTechDocIsTemplate</name>
+ </Item>
+</AML>
