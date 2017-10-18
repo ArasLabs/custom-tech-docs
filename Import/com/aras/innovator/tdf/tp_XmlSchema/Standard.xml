@@ -155,115 +155,7 @@
 &lt;/xs:schema&gt;</content>
   <name>Standard</name>
   <Relationships>
-   <Item type="tp_Stylesheet" id="E6B0F93E610A41DE85642363BCFFFB20" action="add">
-    <parent_stylesheet keyed_name="Custom Style Settings" type="tp_Stylesheet">E574711605AF4ADEABF09CFABF4FB829</parent_stylesheet>
-    <sort_order>128</sort_order>
-    <source_id keyed_name="Standard" type="tp_XmlSchema">41EBFC4BCC754274B494BF525F49A6E1</source_id>
-    <style_content>.Standard-Doc {
- text-align: left;
- font-family: "Tahoma", Geneva, sans-serif
-}
-
-.Standard-Doc &gt; .Title {
- margin-top: 15px;
- font-size: 2em;
- text-align: center;
- color: blue;
-}
-
-.Standard-Doc .Subtitle {
- margin-top: 0px;
- font-size: 1.3em;
- text-align: center;
- color: #0066FF;
-}
-
-.Standard-Doc .Graphic-Block {
- display: block;
- margin-top: 8px;
- margin-bottom: 8px;
-}
-
-.Standard-Doc .Graphic-Block img {
- display: block;
- margin-left: auto;
- margin-right: auto;
-}
-
-.Standard-Doc .Graphic-Block .Label {
- color: green;
- font-size: 1em;
- text-align: center;
-}
-
-.Standard-Doc .Section &gt; .Title {
- font-size: 1.5em;
- font-style: italic;
- font-weight: bold;
- color: #505050;
- padding-top: 10px;
- padding-bottom: 10px;
- text-align: left;
-}
-
-.Standard-Doc table {
- width:100%;
-}
-
-.Standard-Doc .Table, .Standard-Doc .Entry{
- border: 1px solid white;
- border-collapse: collapse;
-}
-
-.Standard-Doc  .Entry {
- padding: 2px;
- text-align: left;
- font-size: 1em;
-}
-
-.Standard-Doc .Row:nth-child(even) {
- background-color: #ddd;
-}
-
-.Standard-Doc  .Row:nth-child(odd) {
- background-color:#eee;
-}
-
-.Standard-Doc  .Row:nth-child(1) {
- background-color:#ccc;
- text-align: center;
- font-size: 1.1em;
- font-weight: bold;
-}
-
-.Standard-Doc  .Row:nth-child(1) .Text {
- text-align: center !important;
-}
-
-.Standard-Doc .List, .Standard-Doc .Table {
- margin-top: 8px;
- margin-bottom: 8px;
-}
-
-.ItemInfo .Row:nth-of-type(-n+2) {
- min-height: 20px;
- background-color: #DDE7F5;
- font-size: 1em;
- font-weight: bold;
-}
-
-.ItemInfo .Title {
- padding: 2px;
- text-align: center;
-}
-
-.ItemInfo .Row:nth-of-type(2) {
- font-size: 1em;
-}
-</style_content>
-    <name>Standard Style Settings</name>
-   </Item>
-   <Item type="tp_Stylesheet" id="E574711605AF4ADEABF09CFABF4FB829" action="add">
+  <Item type="tp_Stylesheet" id="E574711605AF4ADEABF09CFABF4FB829" action="add">
     <sort_order>256</sort_order>
     <source_id keyed_name="Standard" type="tp_XmlSchema">41EBFC4BCC754274B494BF525F49A6E1</source_id>
     <style_content>/* These CSS rules will override the rules in Standard Style Settings */
@@ -512,6 +404,115 @@ body {
 </style_content>
     <name>Custom Style Settings</name>
    </Item>
+   <Item type="tp_Stylesheet" id="E6B0F93E610A41DE85642363BCFFFB20" action="add">
+    <parent_stylesheet keyed_name="Custom Style Settings" type="tp_Stylesheet">E574711605AF4ADEABF09CFABF4FB829</parent_stylesheet>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="Standard" type="tp_XmlSchema">41EBFC4BCC754274B494BF525F49A6E1</source_id>
+    <style_content>.Standard-Doc {
+ text-align: left;
+ font-family: "Tahoma", Geneva, sans-serif
+}
+
+.Standard-Doc &gt; .Title {
+ margin-top: 15px;
+ font-size: 2em;
+ text-align: center;
+ color: blue;
+}
+
+.Standard-Doc .Subtitle {
+ margin-top: 0px;
+ font-size: 1.3em;
+ text-align: center;
+ color: #0066FF;
+}
+
+.Standard-Doc .Graphic-Block {
+ display: block;
+ margin-top: 8px;
+ margin-bottom: 8px;
+}
+
+.Standard-Doc .Graphic-Block img {
+ display: block;
+ margin-left: auto;
+ margin-right: auto;
+}
+
+.Standard-Doc .Graphic-Block .Label {
+ color: green;
+ font-size: 1em;
+ text-align: center;
+}
+
+.Standard-Doc .Section &gt; .Title {
+ font-size: 1.5em;
+ font-style: italic;
+ font-weight: bold;
+ color: #505050;
+ padding-top: 10px;
+ padding-bottom: 10px;
+ text-align: left;
+}
+
+.Standard-Doc table {
+ width:100%;
+}
+
+.Standard-Doc .Table, .Standard-Doc .Entry{
+ border: 1px solid white;
+ border-collapse: collapse;
+}
+
+.Standard-Doc  .Entry {
+ padding: 2px;
+ text-align: left;
+ font-size: 1em;
+}
+
+.Standard-Doc .Row:nth-child(even) {
+ background-color: #ddd;
+}
+
+.Standard-Doc  .Row:nth-child(odd) {
+ background-color:#eee;
+}
+
+.Standard-Doc  .Row:nth-child(1) {
+ background-color:#ccc;
+ text-align: center;
+ font-size: 1.1em;
+ font-weight: bold;
+}
+
+.Standard-Doc  .Row:nth-child(1) .Text {
+ text-align: center !important;
+}
+
+.Standard-Doc .List, .Standard-Doc .Table {
+ margin-top: 8px;
+ margin-bottom: 8px;
+}
+
+.ItemInfo .Row:nth-of-type(-n+2) {
+ min-height: 20px;
+ background-color: #DDE7F5;
+ font-size: 1em;
+ font-weight: bold;
+}
+
+.ItemInfo .Title {
+ padding: 2px;
+ text-align: center;
+}
+
+.ItemInfo .Row:nth-of-type(2) {
+ font-size: 1em;
+}
+</style_content>
+    <name>Standard Style Settings</name>
+   </Item>
+   
    <Item type="tp_Stylesheet" id="336FAF0248FA4A6CA19BD94A9D1B3A65" action="add">
     <sort_order>384</sort_order>
     <source_id keyed_name="Standard" type="tp_XmlSchema">41EBFC4BCC754274B494BF525F49A6E1</source_id>
