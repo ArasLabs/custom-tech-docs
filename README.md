@@ -79,7 +79,7 @@ You are now ready to login to Aras and try out the CustomTechDocs project.
 5. Save the document.
 6. Add some content to the template document.
 7. Save, unlock and close the document.
-8. In the main grid, right click the new template document and select **Create New From Template**.
+8. In the main grid, right-click the new template document and select **Create New From Template**.
 
 The new document will open in a new tab. The content will be populated based on the selected template.
 
