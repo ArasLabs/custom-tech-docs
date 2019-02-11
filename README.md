@@ -10,9 +10,9 @@ The project's import package adds a collection of examples showcasing how you ca
 
 The first example includes a new content generator method for the ItemInfo schema element, replacing the out-of-the-box implementation. The new content generator method, `labs_ItemInfoContentGenerator`, populates every new ItemInfo element with the name, description, cost, major revision/generation, state, and created date for the selected assembly (Part item). The method also adds the assembly's BOM in a tabular layout.
 
-The second example has a new schema which allows you to modify the size of graphics you add to your Tech-Doc. There are two different schemas. One allows you to set predefined widths for your graphics, and one allows you to insert any styling you'd like on your graphic. Both of these changes can be made by editing the attributes for a graphic included in your Tech-Doc. These changes don't require a new content generator, just modifications to the schema and stylesheet.
+The second example includes a new schema, which allows you to modify the size of graphics within your Tech-Doc. The example allows you to set the width of a graphic by editing an attribute, however this could be extended to apply any styling to a graphic. These changes don't require a new content generator, just modifications to the schema and stylesheet.
 
-The third example allows you to create a table which contains dynamically generated links for each row of the table. The example uses the part ItemType and a single entry, but the code could easily be modified to work for other ItemTypes as well. The content generator method `labs_PartLinkGenerator`, shows how you can modify the attributes of a TextDocumentElement to add an external hyperlink dynamically within a table cell. 
+The third example allows you to create a table which contains dynamically generated links for each row of the table. It includes a new document type, called `Link Example` The example uses the part ItemType and a single entry, but the code could easily be modified to work for other ItemTypes as well. The content generator method `labs_PartLinkGenerator`, shows how you can modify the attributes of a TextDocumentElement to add an external hyperlink dynamically within a table cell. 
 
 This project also includes the ability to create a template for future Tech-Docs. This is incredibly handy if you need multiple documents which follow a specific format. The instructions on how to use templates can be found below. 
 
@@ -107,7 +107,7 @@ The new document will open in a new tab. The content will be populated based on 
 **Pre-requisite:** The Aras instance shoudl include multiple Parts.
 1. Log into Aras as Admin.
 2. Navigate to **Technical Doucmentation > Technical Documents**.
-3. Create a new Technical Document with `linkExample` schema.
+3. Create a new Technical Document with `Link Example` schema.
 4. Add a `PartLink` item to the document.
 5. Select a part to reference within the table.
 6. Highlight the cell with the hyperlink
