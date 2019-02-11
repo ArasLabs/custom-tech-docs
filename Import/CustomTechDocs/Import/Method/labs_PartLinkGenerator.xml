@@ -1,0 +1,58 @@
+﻿<AML>
+ <Item type="Method" id="20BC2F7D9CAB40709B0DB8FE2447513C" action="add">
+  <execution_allowed_to keyed_name="Administrators" type="Identity">2618D6F5A90949BAA7E920D1B04C7EE1</execution_allowed_to>
+  <method_code><![CDATA[//MethodTemplateName=CSharp:Aras.TDF.ContentGenerator(Strict);
+ItemDocumentElement targetItem = targetElement as ItemDocumentElement;
+if (targetItem != null) {
+	targetItem.ClearChilds();
+	
+
+	// if referenced item was set, then
+	if (!targetItem.IsEmpty)
+	{
+		TableDocumentElement tableElement = (TableDocumentElement) this.Factory.NewTable("Table", 3, 3);
+		tableElement.GetCell(0, 0).AddChild(this.Factory.NewText("Title","Part with link"));
+		for (int i = 0; i < tableElement.CellCount; i++)
+		{
+			tableElement.MergeCells(0, i, MergeDirection.Right);
+		}
+		
+		tableElement.GetCell(1, 0).AddChild(this.Factory.NewText("Title", "Name"));
+		tableElement.GetCell(1, 1).AddChild(this.Factory.NewText("Title", "Classification"));
+		tableElement.GetCell(1, 2).AddChild(this.Factory.NewText("Title", "Status"));
+
+            
+        //iterate through test cases
+        //create a text element which we can modify
+        var baseText = this.Factory.NewText("Text", targetItem.GetItemProperty("name",""));
+        //work down to the attributes to get the ownerDocument
+        var children = baseText.Childs[0];
+        var origins = children.Origin;
+        var attributes = origins.Attributes;
+        XmlDocument doc = baseText.Childs[0].Origin.OwnerDocument;
+        //set the attributes which we'll append to our baseText element
+        XmlAttribute link = doc.CreateAttribute("link");
+        link.Value = "true";
+        XmlAttribute linktype = doc.CreateAttribute("linktype");
+        linktype.Value = "url";
+        string innUrl = System.Web.HttpContext.Current.Request.Url.AbsoluteUri;
+        innUrl = innUrl.Replace("Server/InnovatorServer.aspx","");
+        innUrl += "?StartItem=part:"+ targetItem.GetItemProperty("id","") +":current";
+        XmlAttribute url = doc.CreateAttribute("url");
+        url.Value = innUrl;
+        //append to baseText
+        baseText.Childs[0].Origin.Attributes.Append(link);
+        baseText.Childs[0].Origin.Attributes.Append(linktype);
+        baseText.Childs[0].Origin.Attributes.Append(url);
+        //populate the other columns
+    	tableElement.GetCell(2, 0).AddChild(baseText);
+    	tableElement.GetCell(2, 1).AddChild(this.Factory.NewText("Text", targetItem.GetItemProperty("classification","")));
+    	tableElement.GetCell(2, 2).AddChild(this.Factory.NewText("Text", targetItem.GetItemProperty("state", " ")));
+		targetItem.AddChild(tableElement);
+	}
+	
+}]]></method_code>
+  <method_type>C#</method_type>
+  <name>labs_PartLinkGenerator</name>
+ </Item>
+</AML>

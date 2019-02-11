@@ -1,0 +1,270 @@
+﻿<AML>
+ <Item type="tp_XmlSchema" id="3BFA25B024AA4382A168B44C449F2F48" action="add">
+  <application>tp_Block</application>
+  <content>&lt;xs:schema xmlns="http://www.aras.com/TechDocExample" targetNamespace="http://www.aras.com/TechDocExample" xmlns:aras="http://aras.com/ArasTechDoc" xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"&gt;
+	&lt;xs:import namespace="http://www.w3.org/XML/1998/namespace"/&gt;
+	&lt;xs:import namespace="http://aras.com/ArasTechDoc"/&gt;
+
+	&lt;xs:element name="Standard-Doc"&gt;
+		&lt;xs:complexType&gt;
+			&lt;xs:sequence&gt;
+				&lt;xs:element ref="Title"/&gt;
+				&lt;xs:element ref="Subtitle" minOccurs="0" maxOccurs="1"/&gt;
+				&lt;xs:element ref="TOC-Section" minOccurs="0" maxOccurs="1"/&gt;
+				&lt;xs:choice&gt;
+					&lt;xs:element ref="Section" minOccurs="0" maxOccurs="unbounded"/&gt;
+					&lt;xs:element ref="Chapter" minOccurs="0" maxOccurs="unbounded"/&gt;
+				&lt;/xs:choice&gt;
+			&lt;/xs:sequence&gt;
+		&lt;/xs:complexType&gt;
+	&lt;/xs:element&gt;
+
+	&lt;xs:element name="Section"&gt;
+		&lt;xs:complexType&gt;
+			&lt;xs:sequence&gt;
+				&lt;xs:element ref="Title" minOccurs="1" maxOccurs="1"/&gt;
+				&lt;xs:choice maxOccurs="unbounded"&gt;
+					&lt;xs:group ref="sectionElements"/&gt;
+				&lt;/xs:choice&gt;
+			&lt;/xs:sequence&gt;
+		&lt;/xs:complexType&gt;
+	&lt;/xs:element&gt;
+
+	&lt;xs:group name="sectionElements"&gt;
+		&lt;xs:choice&gt;
+			&lt;xs:element ref="Text"/&gt;
+			&lt;xs:element ref="List"/&gt;
+			&lt;xs:element ref="Table"/&gt;
+			&lt;xs:element ref="Graphic-Block"/&gt;
+			&lt;xs:element ref="Section"/&gt;
+		&lt;/xs:choice&gt;
+	&lt;/xs:group&gt;
+
+	&lt;xs:element name="Graphic-Block"&gt;
+		&lt;xs:complexType&gt;
+			&lt;xs:sequence&gt;
+				&lt;xs:element ref="Graphic" minOccurs="0" maxOccurs="1"/&gt;
+				&lt;xs:element ref="Label" minOccurs="0" maxOccurs="1"/&gt;
+			&lt;/xs:sequence&gt;
+		&lt;/xs:complexType&gt;
+	&lt;/xs:element&gt;
+
+	&lt;xs:element name="Label"&gt;
+		&lt;xs:complexType&gt;
+			&lt;xs:complexContent&gt;
+				&lt;xs:extension base="aras:text"&gt;
+				&lt;/xs:extension&gt;
+			&lt;/xs:complexContent&gt;
+		&lt;/xs:complexType&gt;
+	&lt;/xs:element&gt;
+
+	&lt;xs:element name="Graphic"&gt;
+		&lt;xs:complexType&gt;
+			&lt;xs:complexContent&gt;
+				&lt;xs:extension base="aras:imageType"&gt;
+				&lt;/xs:extension&gt;
+			&lt;/xs:complexContent&gt;
+		&lt;/xs:complexType&gt;
+	&lt;/xs:element&gt;
+
+	&lt;xs:element name="Title"&gt;
+		&lt;xs:complexType&gt;
+			&lt;xs:complexContent&gt;
+				&lt;xs:extension base="aras:text"&gt;
+				&lt;/xs:extension&gt;
+			&lt;/xs:complexContent&gt;
+		&lt;/xs:complexType&gt;
+	&lt;/xs:element&gt;
+
+	&lt;xs:element name="Subtitle"&gt;
+		&lt;xs:complexType mixed="true"/&gt;
+	&lt;/xs:element&gt;
+
+	&lt;xs:element name="Text"&gt;
+		&lt;xs:complexType&gt;
+			&lt;xs:complexContent&gt;
+				&lt;xs:extension base="aras:text"&gt;
+				&lt;/xs:extension&gt;
+			&lt;/xs:complexContent&gt;
+		&lt;/xs:complexType&gt;
+	&lt;/xs:element&gt;
+
+	&lt;xs:element name="List"&gt;
+		&lt;xs:complexType&gt;
+			&lt;xs:complexContent&gt;
+				&lt;xs:extension base="aras:list"&gt;
+					&lt;xs:choice maxOccurs="unbounded"&gt;
+						&lt;xs:element ref="List-Item" minOccurs="1" maxOccurs="unbounded"/&gt;
+					&lt;/xs:choice&gt;
+				&lt;/xs:extension&gt;
+			&lt;/xs:complexContent&gt;
+		&lt;/xs:complexType&gt;
+	&lt;/xs:element&gt;
+
+	&lt;xs:element name="List-Item"&gt;
+		&lt;xs:complexType&gt;
+			&lt;xs:complexContent&gt;
+				&lt;xs:extension base="aras:listitemType"&gt;
+					&lt;xs:choice maxOccurs="unbounded"&gt;
+						&lt;xs:element ref="Text" /&gt;
+						&lt;xs:element ref="Graphic"/&gt;
+						&lt;xs:element ref="List"/&gt;
+					&lt;/xs:choice&gt;
+				&lt;/xs:extension&gt;
+			&lt;/xs:complexContent&gt;
+		&lt;/xs:complexType&gt;
+	&lt;/xs:element&gt;
+
+	&lt;xs:element name="Table"&gt;
+		&lt;xs:complexType&gt;
+			&lt;xs:complexContent&gt;
+				&lt;xs:extension base="aras:table"&gt;
+				&lt;/xs:extension&gt;
+			&lt;/xs:complexContent&gt;
+		&lt;/xs:complexType&gt;
+	&lt;/xs:element&gt;
+
+	&lt;xs:element name="Row" substitutionGroup="aras:tablerow"&gt;
+		&lt;xs:complexType&gt;
+			&lt;xs:complexContent&gt;
+				&lt;xs:extension base="aras:tr"/&gt;
+			&lt;/xs:complexContent&gt;
+		&lt;/xs:complexType&gt;
+	&lt;/xs:element&gt;
+
+	&lt;xs:element name="Entry" substitutionGroup="aras:tablecell"&gt;
+		&lt;xs:complexType&gt;
+			&lt;xs:complexContent&gt;
+				&lt;xs:extension base="aras:td"&gt;
+					&lt;xs:choice minOccurs="0" maxOccurs="unbounded"&gt;
+						&lt;xs:element ref="Text" minOccurs="0" maxOccurs="unbounded"/&gt;
+						&lt;xs:element ref="List"/&gt;
+						&lt;xs:element ref="Graphic"/&gt;
+					&lt;/xs:choice&gt;
+				&lt;/xs:extension&gt;
+			&lt;/xs:complexContent&gt;
+		&lt;/xs:complexType&gt;
+	&lt;/xs:element&gt;
+	
+	&lt;xs:element name="PartLink"&gt;
+		&lt;xs:complexType&gt;
+			&lt;xs:complexContent&gt;
+				&lt;xs:extension base="aras:itemType"&gt;
+					&lt;xs:choice maxOccurs="unbounded"&gt;
+						&lt;xs:element ref="Table" minOccurs="0" maxOccurs="1"/&gt;
+					&lt;/xs:choice&gt;
+				&lt;/xs:extension&gt;
+			&lt;/xs:complexContent&gt;
+		&lt;/xs:complexType&gt;
+	&lt;/xs:element&gt;
+
+	&lt;xs:element name="ItemInfo"&gt;
+		&lt;xs:complexType&gt;
+			&lt;xs:complexContent&gt;
+				&lt;xs:extension base="aras:itemType"&gt;
+					&lt;xs:choice maxOccurs="unbounded"&gt;
+						&lt;xs:element ref="Table" minOccurs="0" maxOccurs="1"/&gt;
+					&lt;/xs:choice&gt;
+				&lt;/xs:extension&gt;
+			&lt;/xs:complexContent&gt;
+		&lt;/xs:complexType&gt;
+	&lt;/xs:element&gt;
+
+	&lt;xs:element name="TOC"&gt;
+		&lt;xs:complexType&gt;
+			&lt;xs:sequence&gt;
+				&lt;xs:element ref="TOC-Item" minOccurs="0" maxOccurs="unbounded"/&gt;
+			&lt;/xs:sequence&gt;
+		&lt;/xs:complexType&gt;
+	&lt;/xs:element&gt;
+
+	&lt;xs:element name="TOC-Item"&gt;
+		&lt;xs:complexType&gt;
+			&lt;xs:complexContent&gt;
+				&lt;xs:extension base="aras:text"&gt;
+					&lt;xs:attribute name="level" type="xs:string"/&gt;
+				&lt;/xs:extension&gt;
+			&lt;/xs:complexContent&gt;
+		&lt;/xs:complexType&gt;
+	&lt;/xs:element&gt;
+
+	&lt;xs:element name="TOC-Section"&gt;
+		&lt;xs:complexType&gt;
+			&lt;xs:sequence&gt;
+				&lt;xs:element ref="Title" minOccurs="1" maxOccurs="1"/&gt;
+				&lt;xs:element ref="TOC" minOccurs="0" maxOccurs="1"/&gt;
+			&lt;/xs:sequence&gt;
+		&lt;/xs:complexType&gt;
+	&lt;/xs:element&gt;
+
+	&lt;xs:element name="Chapter"&gt;
+		&lt;xs:complexType&gt;
+			&lt;xs:sequence&gt;
+				&lt;xs:element ref="Title" minOccurs="1" maxOccurs="1"/&gt;
+				&lt;xs:choice maxOccurs="unbounded"&gt;
+					&lt;xs:group ref="sectionElements"/&gt;
+					&lt;xs:element ref="Chapter"/&gt;
+				&lt;/xs:choice&gt;
+			&lt;/xs:sequence&gt;
+		&lt;/xs:complexType&gt;
+	&lt;/xs:element&gt;
+
+&lt;/xs:schema&gt;</content>
+  <name>Link Example</name>
+  <Relationships>
+   <Item type="tp_XmlSchemaElement" id="6D7A65BF7E654BF8AD9899736A657DD7" action="add">
+    <content_generator keyed_name="tp_ItemInfoContentGenerator" type="Method">
+     <Item type="Method" action="get" select="id">
+      <name>tp_ItemInfoContentGenerator</name>
+     </Item>
+    </content_generator>
+    <is_content_dynamic>0</is_content_dynamic>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="Link Example" type="tp_XmlSchema">3BFA25B024AA4382A168B44C449F2F48</source_id>
+    <name>ItemInfo</name>
+   </Item>
+   <Item type="tp_XmlSchemaElement" id="9AF9A50C90E44A2B82ABFB6748E729BA" action="add">
+    <content_generator keyed_name="tp_TOCContentGenerator" type="Method">
+     <Item type="Method" action="get" select="id">
+      <name>tp_TOCContentGenerator</name>
+     </Item>
+    </content_generator>
+    <generator_parameters>{
+	/* SourceElements: Identifies the Container Document Elements
+	and Text-based elements to use for each Table of Content Item.
+	The format is as follows:
+
+	Container Element Name: Text Document Element Name
+
+	For example, the following searches for ‘Chapter’ and ‘Section’ Document
+	Elements and will use the content of  the first ‘Title’ Document Element
+	within each for the TOC text.*/
+	"SourceElements": {
+		"Chapter": "Title",
+		"Section": "Title"
+	},
+	/* MaxLevel: The maximum depth to use for the Table of Contents. Valid values are equal to or greater than 1 */
+	"MaxLevel": 3,
+	/* TOCItemName: Name of the Document Element to create for each TOC Item generated */
+	"TOCItemName": "TOC-Item"
+}</generator_parameters>
+    <is_content_dynamic>0</is_content_dynamic>
+    <sort_order>1024</sort_order>
+    <source_id keyed_name="Link Example" type="tp_XmlSchema">3BFA25B024AA4382A168B44C449F2F48</source_id>
+    <name>TOC</name>
+   </Item>
+   <Item type="tp_XmlSchemaElement" id="F24458F2B47D4CBCBE854C357EC2FF6D" action="add">
+    <content_generator keyed_name="labs_PartLinkGenerator" type="Method">
+     <Item type="Method" action="get" select="id">
+      <name>labs_PartLinkGenerator</name>
+     </Item>
+    </content_generator>
+    <is_content_dynamic>1</is_content_dynamic>
+    <sort_order>1152</sort_order>
+    <source_id keyed_name="Link Example" type="tp_XmlSchema">3BFA25B024AA4382A168B44C449F2F48</source_id>
+    <name>PartLink</name>
+   </Item>
+  </Relationships>
+  <target_namespace>http://www.aras.com/TechDocExample</target_namespace>
+ </Item>
+</AML>

@@ -1,0 +1,549 @@
+﻿<AML>
+ <Item type="tp_XmlSchema" id="186A72800C6544F494D61BA245880615" action="add">
+  <application>tp_Block</application>
+  <content>&lt;xs:schema xmlns="http://www.aras.com/TechDocExample" targetNamespace="http://www.aras.com/TechDocExample" xmlns:aras="http://aras.com/ArasTechDoc" xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"&gt;
+	&lt;xs:import namespace="http://www.w3.org/XML/1998/namespace"/&gt;
+	&lt;xs:import namespace="http://aras.com/ArasTechDoc"/&gt;
+
+	&lt;xs:element name="Standard-Doc"&gt;
+		&lt;xs:complexType&gt;
+			&lt;xs:sequence&gt;
+				&lt;xs:element ref="Title"/&gt;
+				&lt;xs:element ref="Subtitle" minOccurs="0" maxOccurs="1"/&gt;
+				&lt;xs:element ref="TOC-Section" minOccurs="0" maxOccurs="1"/&gt;
+				&lt;xs:choice&gt;
+					&lt;xs:element ref="Section" minOccurs="0" maxOccurs="unbounded"/&gt;
+					&lt;xs:element ref="Chapter" minOccurs="0" maxOccurs="unbounded"/&gt;
+				&lt;/xs:choice&gt;
+			&lt;/xs:sequence&gt;
+		&lt;/xs:complexType&gt;
+	&lt;/xs:element&gt;
+
+	&lt;xs:element name="Section"&gt;
+		&lt;xs:complexType&gt;
+			&lt;xs:sequence&gt;
+				&lt;xs:element ref="Title" minOccurs="1" maxOccurs="1"/&gt;
+				&lt;xs:choice maxOccurs="unbounded"&gt;
+					&lt;xs:group ref="sectionElements"/&gt;
+				&lt;/xs:choice&gt;
+			&lt;/xs:sequence&gt;
+		&lt;/xs:complexType&gt;
+	&lt;/xs:element&gt;
+
+	&lt;xs:group name="sectionElements"&gt;
+		&lt;xs:choice&gt;
+			&lt;xs:element ref="Text"/&gt;
+			&lt;xs:element ref="List"/&gt;
+			&lt;xs:element ref="Table"/&gt;
+			&lt;xs:element ref="Graphic-Block"/&gt;
+			&lt;xs:element ref="Section"/&gt;
+		&lt;/xs:choice&gt;
+	&lt;/xs:group&gt;
+
+	&lt;xs:element name="Graphic-Block"&gt;
+		&lt;xs:complexType&gt;
+			&lt;xs:sequence&gt;
+				&lt;xs:element ref="Graphic" minOccurs="0" maxOccurs="1"/&gt;
+				&lt;xs:element ref="Label" minOccurs="0" maxOccurs="1"/&gt;
+			&lt;/xs:sequence&gt;
+		&lt;/xs:complexType&gt;
+	&lt;/xs:element&gt;
+
+	&lt;xs:element name="Label"&gt;
+		&lt;xs:complexType&gt;
+			&lt;xs:complexContent&gt;
+				&lt;xs:extension base="aras:text"&gt;
+				&lt;/xs:extension&gt;
+			&lt;/xs:complexContent&gt;
+		&lt;/xs:complexType&gt;
+	&lt;/xs:element&gt;
+
+    &lt;xs:element name="Graphic"&gt;
+      &lt;xs:complexType&gt;
+        &lt;xs:complexContent&gt;
+          &lt;xs:extension base="aras:imageType"&gt;
+            &lt;xs:attribute name="style" type="xs:string"/&gt;
+          &lt;/xs:extension&gt;
+        &lt;/xs:complexContent&gt;
+      &lt;/xs:complexType&gt;
+    &lt;/xs:element&gt;
+
+	&lt;xs:element name="Title"&gt;
+		&lt;xs:complexType&gt;
+			&lt;xs:complexContent&gt;
+				&lt;xs:extension base="aras:text"&gt;
+				&lt;/xs:extension&gt;
+			&lt;/xs:complexContent&gt;
+		&lt;/xs:complexType&gt;
+	&lt;/xs:element&gt;
+
+	&lt;xs:element name="Subtitle"&gt;
+		&lt;xs:complexType mixed="true"/&gt;
+	&lt;/xs:element&gt;
+
+	&lt;xs:element name="Text"&gt;
+		&lt;xs:complexType&gt;
+			&lt;xs:complexContent&gt;
+				&lt;xs:extension base="aras:text"&gt;
+				&lt;/xs:extension&gt;
+			&lt;/xs:complexContent&gt;
+		&lt;/xs:complexType&gt;
+	&lt;/xs:element&gt;
+
+	&lt;xs:element name="List"&gt;
+		&lt;xs:complexType&gt;
+			&lt;xs:complexContent&gt;
+				&lt;xs:extension base="aras:list"&gt;
+					&lt;xs:choice maxOccurs="unbounded"&gt;
+						&lt;xs:element ref="List-Item" minOccurs="1" maxOccurs="unbounded"/&gt;
+					&lt;/xs:choice&gt;
+				&lt;/xs:extension&gt;
+			&lt;/xs:complexContent&gt;
+		&lt;/xs:complexType&gt;
+	&lt;/xs:element&gt;
+
+	&lt;xs:element name="List-Item"&gt;
+		&lt;xs:complexType&gt;
+			&lt;xs:complexContent&gt;
+				&lt;xs:extension base="aras:listitemType"&gt;
+					&lt;xs:choice maxOccurs="unbounded"&gt;
+						&lt;xs:element ref="Text" /&gt;
+						&lt;xs:element ref="Graphic"/&gt;
+						&lt;xs:element ref="List"/&gt;
+					&lt;/xs:choice&gt;
+				&lt;/xs:extension&gt;
+			&lt;/xs:complexContent&gt;
+		&lt;/xs:complexType&gt;
+	&lt;/xs:element&gt;
+
+	&lt;xs:element name="Table"&gt;
+		&lt;xs:complexType&gt;
+			&lt;xs:complexContent&gt;
+				&lt;xs:extension base="aras:table"&gt;
+				&lt;/xs:extension&gt;
+			&lt;/xs:complexContent&gt;
+		&lt;/xs:complexType&gt;
+	&lt;/xs:element&gt;
+
+	&lt;xs:element name="Row" substitutionGroup="aras:tablerow"&gt;
+		&lt;xs:complexType&gt;
+			&lt;xs:complexContent&gt;
+				&lt;xs:extension base="aras:tr"/&gt;
+			&lt;/xs:complexContent&gt;
+		&lt;/xs:complexType&gt;
+	&lt;/xs:element&gt;
+
+	&lt;xs:element name="Entry" substitutionGroup="aras:tablecell"&gt;
+		&lt;xs:complexType&gt;
+			&lt;xs:complexContent&gt;
+				&lt;xs:extension base="aras:td"&gt;
+					&lt;xs:choice minOccurs="0" maxOccurs="unbounded"&gt;
+						&lt;xs:element ref="Text" minOccurs="0" maxOccurs="unbounded"/&gt;
+						&lt;xs:element ref="List"/&gt;
+						&lt;xs:element ref="Graphic"/&gt;
+					&lt;/xs:choice&gt;
+				&lt;/xs:extension&gt;
+			&lt;/xs:complexContent&gt;
+		&lt;/xs:complexType&gt;
+	&lt;/xs:element&gt;
+
+	&lt;xs:element name="ItemInfo"&gt;
+		&lt;xs:complexType&gt;
+			&lt;xs:complexContent&gt;
+				&lt;xs:extension base="aras:itemType"&gt;
+					&lt;xs:choice maxOccurs="unbounded"&gt;
+						&lt;xs:element ref="Table" minOccurs="0" maxOccurs="1"/&gt;
+					&lt;/xs:choice&gt;
+				&lt;/xs:extension&gt;
+			&lt;/xs:complexContent&gt;
+		&lt;/xs:complexType&gt;
+	&lt;/xs:element&gt;
+
+	&lt;xs:element name="TOC"&gt;
+		&lt;xs:complexType&gt;
+			&lt;xs:sequence&gt;
+				&lt;xs:element ref="TOC-Item" minOccurs="0" maxOccurs="unbounded"/&gt;
+			&lt;/xs:sequence&gt;
+		&lt;/xs:complexType&gt;
+	&lt;/xs:element&gt;
+
+	&lt;xs:element name="TOC-Item"&gt;
+		&lt;xs:complexType&gt;
+			&lt;xs:complexContent&gt;
+				&lt;xs:extension base="aras:text"&gt;
+					&lt;xs:attribute name="level" type="xs:string"/&gt;
+				&lt;/xs:extension&gt;
+			&lt;/xs:complexContent&gt;
+		&lt;/xs:complexType&gt;
+	&lt;/xs:element&gt;
+
+	&lt;xs:element name="TOC-Section"&gt;
+		&lt;xs:complexType&gt;
+			&lt;xs:sequence&gt;
+				&lt;xs:element ref="Title" minOccurs="1" maxOccurs="1"/&gt;
+				&lt;xs:element ref="TOC" minOccurs="0" maxOccurs="1"/&gt;
+			&lt;/xs:sequence&gt;
+		&lt;/xs:complexType&gt;
+	&lt;/xs:element&gt;
+
+	&lt;xs:element name="Chapter"&gt;
+		&lt;xs:complexType&gt;
+			&lt;xs:sequence&gt;
+				&lt;xs:element ref="Title" minOccurs="1" maxOccurs="1"/&gt;
+				&lt;xs:choice maxOccurs="unbounded"&gt;
+					&lt;xs:group ref="sectionElements"/&gt;
+					&lt;xs:element ref="Chapter"/&gt;
+				&lt;/xs:choice&gt;
+			&lt;/xs:sequence&gt;
+		&lt;/xs:complexType&gt;
+	&lt;/xs:element&gt;
+
+&lt;/xs:schema&gt;</content>
+  <name>Image Size Example</name>
+  <Relationships>
+   <Item type="tp_Stylesheet" id="E68A678ADE574FAAB8D3781CF8AA8367" action="add">
+    <sort_order>128</sort_order>
+    <source_id keyed_name="Image Size Example" type="tp_XmlSchema">186A72800C6544F494D61BA245880615</source_id>
+    <style_content>body {
+	counter-reset: sectionNum; /* Counter used for Chapter / Section numbering */
+	counter-reset: figNum; /* Counter used for Graphic Label numbering */
+	text-align: left;
+	font-family: "Tahoma", Geneva, sans-serif
+}
+
+.Standard-Doc &gt; .Title {
+	margin-top: 15px;
+	font-size: 2em;
+	text-align: center;
+	color: blue;
+}
+
+.Standard-Doc .Subtitle {
+	margin-top: 0px;
+	font-size: 1.3em;
+	text-align: center;
+	color: #0011FF;
+}
+
+.Graphic-Block {
+	display: block;
+	margin-top: 8px;
+	margin-bottom: 8px;
+}
+
+.Graphic-Block img {
+	display: block;
+	margin-left: auto; /* Used to center the image */
+	margin-right: auto;
+}
+
+.Graphic-Block .Label {
+	color: green;
+	font-size: 1em;
+	text-align: center;
+}
+
+/* Counter for Graphic Labels that are included within a Chapter or Section */
+.Chapter .Graphic-Block .Label::before, .Section .Graphic-Block .Label::before {
+	counter-increment: figNum;
+	content: "Figure " counters(sectionNum, ".") "-" counter(figNum) ": ";
+}
+
+/* Counter for Graphic Labels that are NOT included within a Chapter or Section */
+.Graphic-Block .Label::before {
+	counter-increment: figNum;
+	content: "Figure " counter(figNum) ": ";
+}
+
+.Section &gt; .Title {
+	font-size: 1.5em;
+	font-style: italic;
+	font-weight: bold;
+	color: #505050;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	text-align: left;
+}
+
+table {
+	width: 100%;
+}
+
+/* Sets a single border line for tables */
+.Table, .Entry {
+	border: 1px solid white;
+	border-collapse: collapse;
+}
+
+/* Cell styles */
+.Entry {
+	padding: 2px;
+	text-align: left;
+	font-size: 1em;
+}
+
+/* These styles alternate background color for table rows */
+.Row:nth-child(even) {
+	background-color: #ddd;
+}
+
+.Row:nth-child(odd) {
+	background-color: #eee;
+}
+
+/* Style for first row of a table */
+.Row:nth-child(1) {
+	background-color: #ccc;
+	text-align: center;
+	font-size: 1.1em;
+	font-weight: bold;
+}
+
+/* Style for text within the first row of a table */
+.Row:nth-child(1) .Text {
+	text-align: center !important;
+}
+
+.List, .Standard-Doc .Table {
+	margin-top: 8px;
+	margin-bottom: 8px;
+}
+
+/* Styles for tables produced by the ItemInfo Element for all rows except the first */
+.ItemInfo .Row:nth-of-type(-n+2) {
+	min-height: 20px;
+	background-color: #DDE7F5;
+	font-size: 1em;
+	font-weight: bold;
+}
+
+.ItemInfo .Title {
+	padding: 2px;
+	text-align: center;
+}
+
+.ItemInfo .Row:nth-of-type(2) {
+	font-size: 1em;
+}
+
+/* Style for Chapter and Table of Contents Titles */
+.Chapter &gt; .Title, .TOC-Section &gt; .Title {
+	font-size: 1.7em;
+	font-style: italic;
+	font-weight: bold;
+	color: #000050;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	text-align: left;
+}
+
+/* Configures the counters used for Chapters and Sections */
+.Chapter {
+	counter-reset: figNum; /* Counter used for Graphic Label numbering */
+}
+
+.Chapter, .Section {
+	counter-increment: sectionNum;
+}
+
+.Chapter &gt; .Title::before, .Section &gt; .Title::before {
+	content: counters(sectionNum, '.') ' ';
+}
+
+.Chapter .Chapter, .Chapter .Section, .Section .Section {
+	counter-reset: sectionNum;
+}
+
+/* This work-around is required to reset the counter in sub Sections and Chapters */
+.Chapter .Chapter ~ .Chapter, .Section .Section ~ .Section, .Chapter .Section ~ .Section, .Chapter .Section ~ .Chapter, .Chapter .Chapter ~ .Section {
+	counter-reset: none;
+}
+
+/* Style rules for Table of Contents */
+.TOC {
+	margin-top: 5px;
+}
+
+.TOC &gt; .Title {
+	font-size: 16px;
+	font-weight: bold;
+	color: #326787;
+	margin-bottom: 5px;
+	padding: 0px;
+	border-bottom: 2px solid #326787;
+}
+
+/* This rule will embed a temporary string for TOC Item there are no target Elements in the document*/
+.TOC:empty:after {
+	content: 'Source elements for Table of Contents were not found..';
+	opacity: 0.5;
+}
+
+/* Padding/margin applied to each level in the TOC */
+.TOC-Item {
+	padding: 0 0 0 5px;
+}
+
+/* This rule will separate all first level TOC Items */
+.TOC-Item[level='0'] {
+	margin-top: 5px;
+}
+
+/* These rules will specify an indent for each level of TOC Items */
+.TOC-Item[level='1'] {
+	padding-left: 1em;
+}
+
+.TOC-Item[level='2'] {
+	padding-left: 2em;
+}
+
+.TOC-Item[level='3'] {
+	padding-left: 3em;
+}
+
+.TOC-Item[level='4'] {
+	padding-left: 4em;
+}
+
+/* Style for TOC Item Text */
+.TOC-Item span {
+	font-weight: bold;
+	color: #000070 !important;
+	text-decoration: none !important;
+}
+
+.Graphic
+{
+  width: var(width);
+}
+
+</style_content>
+    <name>Size Style Settings</name>
+   </Item>
+   <Item type="tp_Stylesheet" id="6AC34256D43F4993B70FEFEF586184C6" action="add">
+    <parent_stylesheet keyed_name="Size Style Settings" type="tp_Stylesheet">E68A678ADE574FAAB8D3781CF8AA8367</parent_stylesheet>
+    <sort_order>256</sort_order>
+    <source_id keyed_name="Image Size Example" type="tp_XmlSchema">186A72800C6544F494D61BA245880615</source_id>
+    <style_content>@page {
+	size: 8.5in 11.0in;
+	margin: 40px 20px 40px 20px;
+
+	@bottom-center {
+		content: counter(page); /* Places a auto-generated page number at the bottom center of the page*/
+	}
+}
+
+/* Configures the Content to display before the TOC Item target text */
+/* In this case, references the auto-generated counter used by the element 
+   referenced by the href value.
+*/
+.TOC-Item a::before {
+	content: target-counters(attr(href), sectionNum, '.', decimal) "  ";
+}
+
+/* Configures the Content to display after the TOC Item target text */
+/* In this case, use a dot (.) as a generated character separating 
+	the TOC Item Text from the Page number.  In addition, references
+	the auto-generated page counter used by the element referenced by 
+	the href value.
+*/
+.TOC-Item a::after {
+	content: leader('.') target-counter(attr(href), page, decimal);
+}
+
+/* Styles the anchor element generated for each TOC Item */
+.TOC-Item a {
+	font-weight: bold;
+	color: #000070 !important;
+	text-decoration: none !important;
+}</style_content>
+    <name>Size PDF Style Settings</name>
+   </Item>
+   <Item type="tp_Stylesheet" id="F7BE2F7CBF0D4C6CBFBD651559FF46F5" action="add">
+    <parent_stylesheet keyed_name="Size Style Settings" type="tp_Stylesheet">E68A678ADE574FAAB8D3781CF8AA8367</parent_stylesheet>
+    <sort_order>384</sort_order>
+    <source_id keyed_name="Image Size Example" type="tp_XmlSchema">186A72800C6544F494D61BA245880615</source_id>
+    <style_content>/* Styles the anchor element generated for each TOC Item */
+.TOC-Item a {
+	font-weight: bold;
+	color: #000070 !important;
+	text-decoration: none !important;
+}</style_content>
+    <name>Size HTML Style Settings</name>
+   </Item>
+   <Item type="tp_XmlSchemaElement" id="D0FFB17E68014C72B8B4B64F40105CC9" action="add">
+    <content_generator keyed_name="tp_ItemInfoContentGenerator" type="Method">
+     <Item type="Method" action="get" select="id">
+      <name>tp_ItemInfoContentGenerator</name>
+     </Item>
+    </content_generator>
+    <is_content_dynamic>0</is_content_dynamic>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="Image Size Example" type="tp_XmlSchema">186A72800C6544F494D61BA245880615</source_id>
+    <name>ItemInfo</name>
+   </Item>
+   <Item type="tp_XmlSchemaElement" id="E5CCC26034C14F71828D499F1C997408" action="add">
+    <content_generator keyed_name="tp_TOCContentGenerator" type="Method">
+     <Item type="Method" action="get" select="id">
+      <name>tp_TOCContentGenerator</name>
+     </Item>
+    </content_generator>
+    <generator_parameters>{
+	/* SourceElements: Identifies the Container Document Elements
+	and Text-based elements to use for each Table of Content Item.
+	The format is as follows:
+
+	Container Element Name: Text Document Element Name
+
+	For example, the following searches for ‘Chapter’ and ‘Section’ Document
+	Elements and will use the content of  the first ‘Title’ Document Element
+	within each for the TOC text.*/
+	"SourceElements": {
+		"Chapter": "Title",
+		"Section": "Title"
+	},
+	/* MaxLevel: The maximum depth to use for the Table of Contents. Valid values are equal to or greater than 1 */
+	"MaxLevel": 3,
+	/* TOCItemName: Name of the Document Element to create for each TOC Item generated */
+	"TOCItemName": "TOC-Item"
+}</generator_parameters>
+    <is_content_dynamic>0</is_content_dynamic>
+    <sort_order>1024</sort_order>
+    <source_id keyed_name="Image Size Example" type="tp_XmlSchema">186A72800C6544F494D61BA245880615</source_id>
+    <name>TOC</name>
+   </Item>
+   <Item type="tp_XmlSchemaOutputSetting" id="9DEB06126F974CD68DD44FF427B282C4" action="add">
+    <classification>Editor</classification>
+    <indentation>0</indentation>
+    <name>Editor Settings</name>
+    <omit_xml_declaration>0</omit_xml_declaration>
+    <sort_order>256</sort_order>
+    <source_id keyed_name="Image Size Example" type="tp_XmlSchema">186A72800C6544F494D61BA245880615</source_id>
+    <stylesheet_id keyed_name="Size Style Settings" type="tp_Stylesheet">E68A678ADE574FAAB8D3781CF8AA8367</stylesheet_id>
+    <target_classification>Copy of </target_classification>
+   </Item>
+   <Item type="tp_XmlSchemaOutputSetting" id="2861B37A792F43CAB83EE37CF9F37C72" action="add">
+    <classification>Html</classification>
+    <indentation>0</indentation>
+    <name>HTML Settings</name>
+    <omit_xml_declaration>0</omit_xml_declaration>
+    <sort_order>384</sort_order>
+    <source_id keyed_name="Image Size Example" type="tp_XmlSchema">186A72800C6544F494D61BA245880615</source_id>
+    <stylesheet_id keyed_name="Size HTML Style Settings" type="tp_Stylesheet">F7BE2F7CBF0D4C6CBFBD651559FF46F5</stylesheet_id>
+    <target_classification>Copy of </target_classification>
+   </Item>
+   <Item type="tp_XmlSchemaOutputSetting" id="E9A8F93CF5A0487C903438D8CE060C48" action="add">
+    <classification>PDF</classification>
+    <indentation>0</indentation>
+    <name>PDF Settings</name>
+    <omit_xml_declaration>0</omit_xml_declaration>
+    <sort_order>512</sort_order>
+    <source_id keyed_name="Image Size Example" type="tp_XmlSchema">186A72800C6544F494D61BA245880615</source_id>
+    <stylesheet_id keyed_name="Size PDF Style Settings" type="tp_Stylesheet">6AC34256D43F4993B70FEFEF586184C6</stylesheet_id>
+    <target_classification>Copy of </target_classification>
+   </Item>
+  </Relationships>
+  <target_namespace>http://www.aras.com/TechDocExample</target_namespace>
+ </Item>
+</AML>
