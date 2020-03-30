@@ -13,6 +13,12 @@
 * 09-01-2017 : Packaged for deployment to MyI
 */
 
+// check if current selected item is a template
+if (this.getProperty("is_template","0") == "0")
+{
+    return aras.AlertError("Action can only be performed on a template document.");
+}
+
 var inn = this.getInnovator();
 var thisId = this.getID();
 var thisDoc = inn.getItemById("tp_Block",thisId);
