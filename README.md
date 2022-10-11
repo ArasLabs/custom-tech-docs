@@ -12,7 +12,8 @@ The first example includes a new content generator method for the ItemInfo schem
 
 The second example includes a new schema, which allows you to modify the size of graphics within your Tech-Doc. The example allows you to set the width of a graphic by editing an attribute, however this could be extended to apply any styling to a graphic. These changes don't require a new content generator, just modifications to the schema and stylesheet.
 
-The third example allows you to create a table which contains dynamically generated links for each row of the table. It includes a new document type, called `Link Example` The example uses the part ItemType and a single entry, but the code could easily be modified to work for other ItemTypes as well. The content generator method `labs_PartLinkGenerator`, shows how you can modify the attributes of a TextDocumentElement to add an external hyperlink dynamically within a table cell. 
+The third example allows you to create a table which contains dynamically generated links for each row of the table. It includes a new document type, called `Link Example` The example uses the part ItemType and a single entry, but the code could easily be modified to work for other ItemTypes as well. 
+The content generator method `labs_PartLinkGenerator`, shows how you can modify the attributes of a TextDocumentElement to add an external hyperlink dynamically within a table cell. 
 
 This project also includes the ability to create a template for future Tech-Docs. This is incredibly handy if you need multiple documents which follow a specific format. The instructions on how to use templates can be found below. 
 
